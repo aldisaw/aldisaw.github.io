@@ -1,8 +1,7 @@
 ---
 layout: post
-title: Welcome to Jekyll!
-subtitle: A awesome static site generator.
-author: Jeffrey
+title: Cross-Site Scripting (XSS) affects Sitefinity < 15.0 - CVE-2023-27636
+author: Aldi
 categories: jekyll
 banner:
   video: https://vjs.zencdn.net/v/oceans.mp4
