@@ -2,9 +2,9 @@
 layout: post
 cover: 'assets/images/cover7.jpg'
 navigation: True
-title: The Businessman & the fisherman
-date: 2014-08-12 10:18:00
-tags: fables fiction
+title: Cross-Site Scripting (XSS) affects Sitefinity < 15.0 - CVE-2023-27636
+date: 2023-12-04 22:18:00
+tags: CVE
 subclass: 'post tag-test tag-content'
 logo: 'assets/images/ghost.png'
 author: Aldi
