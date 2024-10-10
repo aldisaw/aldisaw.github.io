@@ -2,7 +2,7 @@
 layout: post
 title: Google Nest Inter Tidak Bisa Terkoneksi ke Wifi ? Masalah Google Nest "Connect to same Wi-Fi"
 author: Aldi
-categories: security
+categories: tutorial
 banner:
   image: https://github.com/user-attachments/assets/846533c6-b510-4818-a1f5-cb67833be52d
   opacity: 0.618
