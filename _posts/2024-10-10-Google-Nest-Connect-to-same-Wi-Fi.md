@@ -62,7 +62,7 @@ Akhirnya gue punya ide daripada harus beli ye kan mending gue buat wifi sendiri 
 
 Akhirnya komplain gue ke tokopedia dibatalkan, indihome tak kunjung ada solusi. Dan sampe sekarang Google Nest gue bisa berjalan ketika komputer gue nyala saja.
 
-##Kesimpulan dan Solusi
+## Kesimpulan dan Solusi
 
 Setelah saya mencoba-coba akhirnya dapet solusi, yaitu dengan cara menggunakan koneksi dummy.
 Misalnya kamu punya wifi yang ingin konek dengan google nest dengan SSID 'wifialdisaw'
