@@ -4,7 +4,7 @@ title: Google Nest Inter Tidak Bisa Terkoneksi ke Wifi ? Masalah Google Nest "Co
 author: Aldi
 categories: security
 banner:
-  image: [https://github.com/user-attachments/assets/98415669-ee19-405f-95c2-d6000a550bb9](https://cdn.shopify.com/s/files/1/0071/9408/3394/products/Google_Mini_Grey.jpg?v=1597747655)
+  image: https://github.com/user-attachments/assets/98415669-ee19-405f-95c2-d6000a550bb9](https://cdn.shopify.com/s/files/1/0071/9408/3394/products/Google_Mini_Grey.jpg?v=1597747655
   opacity: 0.618
   background: "#000"
   height: "100vh"
