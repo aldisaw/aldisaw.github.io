@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="http://aldisaw.id//jekyll-theme-yat/feed.xml" rel="self" type="application/atom+xml" /><link href="http://aldisaw.id//jekyll-theme-yat/" rel="alternate" type="text/html" /><updated>2024-10-10T09:08:03+00:00</updated><id>http://aldisaw.id//jekyll-theme-yat/feed.xml</id><title type="html">Aldisaw</title><subtitle>Aldisaw&apos;s Personal Blog</subtitle><entry><title type="html">Google Nest Inter Tidak Bisa Terkoneksi ke Wifi ? Masalah Google Nest “Connect to same Wi-Fi”</title><link href="http://aldisaw.id//jekyll-theme-yat/tutorial/2024/10/10/Google-Nest-Connect-to-same-Wi-Fi.html" rel="alternate" type="text/html" title="Google Nest Inter Tidak Bisa Terkoneksi ke Wifi ? Masalah Google Nest “Connect to same Wi-Fi”" /><published>2024-10-10T00:00:00+00:00</published><updated>2024-10-10T00:00:00+00:00</updated><id>http://aldisaw.id//jekyll-theme-yat/tutorial/2024/10/10/Google-Nest-Connect-to-same-Wi-Fi</id><content type="html" xml:base="http://aldisaw.id//jekyll-theme-yat/tutorial/2024/10/10/Google-Nest-Connect-to-same-Wi-Fi.html"><![CDATA[<p>Berawal dari punya duit nganggur gue beli google nest biar hidup gue lebih praktis aja serasa punya asisten pribadi dan gue sebelumnya udah pake beberapa smart device spt STB Indihome (walaupun beli yang root), smart lampu dan juga smart stop kontak, selama ini gue pake manual tanpa nyuruh nyuruh pake suara, selain hp gue lemot ya lebih cepet manual juga dari pada harus nunggu respon hp gue yang lemot parah.</p>
+
+<p>Akhirnya gue beli Google Nest via Tokopedia yang berwarna chalk dengan menggunakan fitur sorting harga dari harga yang termurah, dapet lah gue dengan harga 400k sudah full package dapet boxnya dan yang penting produknya baru! tapi sellernya ini belom pernah ada yang beli produk google nestnya tapi ga masalah lah kan ada fitur komplain kalau ada apa-apa.</p>
+
+<p>Setelah gue nunggu sekitar 3 hari akhirnya barang sampe, gue coba set up lah dari siang setelah berjam-jam gue coba setup gue mulai panik tuh, gue yang bego apa emang ada yang salah, karna gue setup tanpa menggunakan manual booknya, tapi kalau gue bego smart device yang lain aman aman aja dah</p>
+
+<p>Pada awalnya gue udah ngerasa ga beres saat google nest ini memberikan keterangan berikut “This Nest Mini was manufactured for a different country, and may not be compatible with your Wi-Fi network” 
+Gue coba nonton review google nest di youtube ga ada tuh yang dapet keterangan kaya gini, gue makin panik lah masa engga.</p>
+
+<p><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgsqo-gvw0DEraGfjxkFKSUyDNs5YsS9km3BqmKu6AOJc1v9r6nM9EE3CrMxzAFuowaAStHqmcTwJv7tSPHyaq04yjQEbXiJsrcHYDrqNVdNlrQb0Zu_NhdTCv4oinhG2CRyJrzGiv-BCX9/w242-h430/image.png" alt="Nest Mini was manufactured for a different country" /></p>
+
+<p>Pada saat coba koneksi ke wifi ada dan dapat keterangan berikut ini “Connect to same WI-FI” “Your nest mini was setup successfully but can’t be found” “Turn off AP Isolation” dan gue berfikir berarti benar nih nest mini ini belum support jaringan indo atau indihome doang ya, karna gue kan pelanggan setia indihome jadi gatau kalau dicoba pake provider lain.</p>
+
+<p><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg5nJ0HheSPxlpfJyMbFQTsmbUTKxJHNabsuNCGvkZtVsKbNEreuNyc_rs7_NOyP6s89znLFXxsVRTbIU3wx23UXSg2C36DzaOCZspUsfitCQoOqSiMsu1fVq_TPEQZ9El_c0ml_CMOvfwV/w276-h490/image.png" alt="Turn OFF AP Isolation!" /></p>
+
+<p>Setelah gue coba factory reset - setup - factory reset - set up ulang mungkin udah lebih dari 10x dan hasilnya pun nihil!</p>
+
+<p>Akhirnya gue complain lah ke si sellernya tapi doi menjawab kaya begini</p>
+
+<p><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgD-NBCgJrWVhpq6ZYRM6kIV3CagXL_Jr71UjBpzEvOT1vnMONLfdQTrttSMfmzXhwQ6f6l5FBp9kh-VqEva2xmJJTNbeczCEbVByc4J0k6fmF5oVVnO_kO3yV336p6GHLlk8vvvRb7imDR/w417-h284/image.png" alt="jawaban seller" /></p>
+
+<p>Dari jawaban seller gue menyimpulkan bahwa seller ini sama-sama gatau dan hanya nyuruh mengusahakan dengan berbagai cara yang dimana sudah gue lakukan duluan</p>
+
+<p>Sebagai anak IT gue tau masalah AP Isolation ini adalah masalah jaringan yang seharusnya ada di settingan router, AP Isolation ini biasanya digunakan untuk wifi umum kaya di hotel, bandara dll yang setiap user jalurnya berbeda, jadi setelah gue coba login admin 192.168.100.1 tapi router HG8245A ini tidak ada settingan AP Isolation. Oiya sebelumnya gue coba juga tuh pake hotspot hp dengan provider tri, dan ternyata bisa!! ya karna hotspot kan memang satu jaringan antara device satu dengan yang lainnya tapi masa gue ngehotspot terus !?.</p>
+
+<p>Akhirnya gue hubungi pihak indihome via twitter, dan kalian pasti tau apa yang mereka suruh lakukan…. ya betul restart modem dan ya pastinya ga ngaruh karna gue minta cek ap isolation tapi solusinya restart modem, setelah gue kontak juga via email dan twitter cs indihome juga sepertinya bingung dengan masalahnya, jadi langsung disuruh isi form kendala.</p>
+
+<p>Karna minim info tentang masalah Google Nest ini sambil gue twitteran nunggu balesan cs indihome gue cari lah “AP Isolation” di pencarian twitter dan nemu juga yang kendalanya sama… Akhirnya gue ga sendirian</p>
+
+<p>Setelah reply replyan twit dengan mas aziz, gue tanya “ada solusi ga bro dari indihome ?” mas aziz ini memberikan balasan sekaligus solusi sebagai berikut</p>
+
+<p><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjupYaycW-y2qv2pQYF3hg2vcQYIJwGy3eeTYjsH5iuFbKjTBVyylAbls65g5zLCZ9AKi_XeKEICMEtAB6oLGGxNSJhX2PVtmhR2lQ2tp6x5Q0vtiJfR_cPuR_nmRNAxQjxQnpA9w6Eg384/w519-h219/image.png" alt="sensor karna ga izin yang punya akun guys" /></p>
+
+<p>sensor karna ga izin yang punya akun guys</p>
+
+<p>Jadi untuk masalah ini solusinya menggunakan router lain yang disambung dari routernya indihome
+Tapi sampe sekarang gue belum lakuin ini karna beberapa hal, salah satunya listrik yang dimana 2 router berjalan selama 24jam, yang kedua kaya aneh aja gitu punya 2 wifi dan alasan yang ketiga adalah masa udah beli google nest sort paling murah jadi harus beli router yang harganya bisa sama kaya beli google nest yang garansi indo.</p>
+
+<p>Akhirnya gue punya ide daripada harus beli ye kan mending gue buat wifi sendiri aja ngandalin komputer gue, karna punya receiver wifi merk tp-link WN727n bekas laptop gue yang wifi adapternya rusak, receiver itu gue pasang di PC dan dijadiin “router portable” dan install aplikasi Connectify</p>
+
+<p><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgImb_vnfGvPhL4zB5spamb17pcb880IdHTzinsYP0p7ZTh_za6mV86c205wIEb0iehHb4wGyz-DSD_ecxTRT7Ttfm7rNTxl2hf2WfqIwMgaVZM_fCw276CRLrldYhYuhWwkU-F4JPWugKd/w258-h466/image.png" alt="Connectify to Google Nest" /></p>
+
+<p>Akhirnya komplain gue ke tokopedia dibatalkan, indihome tak kunjung ada solusi. Dan sampe sekarang Google Nest gue bisa berjalan ketika komputer gue nyala saja.</p>
+
+<h2 id="kesimpulan-dan-solusi">Kesimpulan dan Solusi</h2>
+
+<p>Setelah saya mencoba-coba akhirnya dapet solusi, yaitu dengan cara menggunakan koneksi dummy.
+Misalnya kamu punya wifi yang ingin konek dengan google nest dengan SSID ‘wifialdisaw’
+Non aktifkan ‘wifialdisaw’ yang asli dan buat koneksi dengan hotspot hp atau dengan connectify dengan SSID yang sama yaitu ‘wifialdisaw’ lalu setup ulang google nestnya.
+Setelah set up dan berhasil connect sekarang non aktifkan wifi dummy tadi, dan aktifkan wifi yang asli
+Selamat berhasil terkoneksi dengan normal antara google nest dengan wifi yang diinginkan</p>]]></content><author><name>Aldi</name></author><category term="tutorial" /><category term="tutorial" /><summary type="html"><![CDATA[Berawal dari punya duit nganggur gue beli google nest biar hidup gue lebih praktis aja serasa punya asisten pribadi dan gue sebelumnya udah pake beberapa smart device spt STB Indihome (walaupun beli yang root), smart lampu dan juga smart stop kontak, selama ini gue pake manual tanpa nyuruh nyuruh pake suara, selain hp gue lemot ya lebih cepet manual juga dari pada harus nunggu respon hp gue yang lemot parah.]]></summary></entry><entry><title type="html">Android Pentest Without Connect to PC (Wireless) | JsHook Tutorial</title><link href="http://aldisaw.id//jekyll-theme-yat/security/2024/08/01/Android-Pentest-Without-Connect-PC-(Wireless).html" rel="alternate" type="text/html" title="Android Pentest Without Connect to PC (Wireless) | JsHook Tutorial" /><published>2024-08-01T00:00:00+00:00</published><updated>2024-08-01T00:00:00+00:00</updated><id>http://aldisaw.id//jekyll-theme-yat/security/2024/08/01/Android-Pentest-Without-Connect-PC-(Wireless)</id><content type="html" xml:base="http://aldisaw.id//jekyll-theme-yat/security/2024/08/01/Android-Pentest-Without-Connect-PC-(Wireless).html"><![CDATA[<p>Artikel ini ditujukan untuk memberikan pemahaman tentang teknik hooking pada aplikasi Android dengan praktis menggunakan JsHook, yang merupakan salah satu aspek penting dalam analisis keamanan aplikasi. Dalam konteks pengembangan dan keamanan perangkat lunak, hooking adalah proses memantau dan memodifikasi eksekusi program pada runtime. Teknik ini sering digunakan oleh peneliti keamanan untuk menganalisis aplikasi dengan lebih mendalam, serta oleh pengembang untuk debugging dan pengujian.</p>
+
+<h2 id="disclaimer">Disclaimer</h2>
+<p>Asumsi penulis adalah bahwa pembaca sudah memahami cara setup perangkat Android untuk keperluan penetration testing. Jika belum, silakan cari informasi dengan keyword “<a href="https://www.google.com/search?q=android%20pentest%20setup">Android Pentest Setup</a>” karena banyak referensi tersedia, dan penulis pun malas menulisnya di blog ini hehehe</p>
+
+<p><strong>Pada tutorial ini tetap menggunakan PC, hanya saja tidak connect via USB debugging sehingga tidak perlu lagi menggunakan kabel dan tutorial ini bisa digunakan untuk bypass USB debugging detection</strong></p>
+
+<h2 id="preparation">Preparation</h2>
+
+<p>Berikut tools dan module yang diperlukan:</p>
+<ol>
+  <li>Rooted Android</li>
+  <li>Magisk</li>
+  <li>Zygisk</li>
+  <li>JsHook Zygisk Module</li>
+</ol>
+
+<p>Kurang lebih seperti ini gambaran setupnya
+<img src="https://github.com/user-attachments/assets/ee61daad-2b83-40e4-9c5f-7f6ea7e2a628" alt="langkah instalasi jshook" /></p>
+
+<h3 id="magisk">Magisk</h3>
+<p>Magisk adalah sebuah alat dan framework yang digunakan untuk melakukan rooting pada perangkat Android. Dikembangkan oleh topjohnwu, Magisk memungkinkan pengguna untuk mendapatkan akses root pada perangkat mereka dengan cara yang lebih aman dan terstruktur dibandingkan metode rooting tradisional.</p>
+
+<p><img src="https://github.com/user-attachments/assets/6f13eb7e-f008-4014-b089-4b41b08878eb" alt="instal magisk" /></p>
+
+<p><strong>Pastikan telah menginstal <a href="https://topjohnwu.github.io/Magisk/install.html">Magisk</a> versi terbaru pada perangkat Anda.</strong></p>
+
+<h3 id="zygisk">Zygisk</h3>
+<p>Zygisk adalah fitur yang diperkenalkan dalam Magisk sebagai penerus dari MagiskHide. Zygisk memanfaatkan Zygote, proses inti dalam sistem Android yang bertanggung jawab untuk memulai aplikasi, guna meng-inject modul atau kode tambahan ke dalam setiap aplikasi yang diluncurkan pada perangkat Android.</p>
+
+<p><strong>Pastikan Zygisk aktif pada pengaturan Magisk.</strong></p>
+
+<p><img src="https://github.com/user-attachments/assets/8ea28344-3656-4fc9-8001-a9eeba4e8fd7" alt="zygisk enabled" /></p>
+
+<h3 id="jshook">JsHook</h3>
+<p>JSHook adalah sebuah modul untuk framework Xposed yang memungkinkan pengguna untuk menginjeksi dan menjalankan kode JavaScript pada aplikasi Android secara dinamis. Dengan modul ini, pengguna dapat memodifikasi perilaku aplikasi tanpa perlu memodifikasi kode sumbernya secara langsung.</p>
+
+<h4 id="instalasi-jshook">Instalasi JsHook</h4>
+
+<p>Unduh kebutuhan instalasi <a href="https://github.com/JsHookApp/Download/releases/tag/files">di sini</a> dan pastikan selalu menggunakan versi yang terbaru.</p>
+
+<p>1. Instal Zygisk - JsHook Module, lalu restart perangkat (gunakan file JsHook-v1.2.8-1208-zygisk-release.zip).</p>
+
+<p><img src="https://github.com/user-attachments/assets/b1f0d707-a797-428d-9049-854a7b45e60e" alt="jshook install" /></p>
+
+<p>2. Instal aplikasi jshook-v1.2.5.apk.</p>
+
+<p>3. Buka JsHook dan pastikan statusnya “activated.” Jika belum “activated,” pastikan Zygisk dan modulnya berjalan dengan baik.</p>
+
+<p><img src="https://github.com/user-attachments/assets/edb411cb-427b-4422-a8e1-9bb6471fed48" alt="tampilan jshook" /></p>
+
+<h4 id="setup-jshook">Setup JsHook</h4>
+<p>1. Instal framework untuk mendapatkan berbagai pilihan hook injeksi, sehingga tidak hanya bergantung pada framework default.</p>
+
+<p><img src="https://github.com/user-attachments/assets/a2466e8f-3f66-4cbf-99e3-c6d521e29bfa" alt="jshook framework" /></p>
+
+<p>2. Impor atau buat skrip dalam format JavaScript.</p>
+
+<p><img src="https://github.com/user-attachments/assets/bbb87c32-f375-4648-b113-4b849eb0646c" alt="jshook script" /></p>
+
+<p>3. Pada tab Apps, pilih aplikasi yang akan diinjeksi.</p>
+
+<p><img src="https://github.com/user-attachments/assets/4c177b2e-2486-4374-a985-75e6a58727cd" alt="jshook apps" /></p>
+
+<p>4. Aktifkan Hook Service.</p>
+
+<p><img src="https://github.com/user-attachments/assets/62ce62c3-5871-4085-8f85-c46481ed264a" alt="jshook apps enabled hook" /></p>
+
+<p>5. Konfigurasikan injeksi lainnya; di sini, saya mengaktifkan “hook child process.”</p>
+
+<p><img src="https://github.com/user-attachments/assets/7aa5eb44-0ca2-4958-a413-76163be51602" alt="jshook apps enabled script" /></p>
+
+<p>6. Jika injeksi default tidak berjalan dengan baik, ganti framework injeksi dengan pilihan lain.</p>
+
+<p><img src="https://github.com/user-attachments/assets/432bf716-21e6-4249-9c98-9243f976c2f7" alt="jshook injection framework" /></p>
+
+<p>7. Jangan lupa mengaktifkan skrip yang akan diinjeksi yang telah diimpor atau dibuat pada langkah 2. Di sini saya menggunakan skrip untuk bypass SSL pinning.</p>
+
+<p><img src="https://github.com/user-attachments/assets/968d850e-cb30-40c2-99d1-3d1b3d2f4ec0" alt="enable script" /></p>
+
+<p>8. Buka aplikasi target, Seperti menjalankan Frida di PC, JsHook menyediakan log untuk melihat proses eksekusi skrip.</p>
+
+<p><img src="https://github.com/user-attachments/assets/407d546b-27cd-4eea-b7b1-618d47287b4f" alt="jshook logs" /></p>
+
+<p>9. Berhasil bypass SSL Pinning.</p>
+
+<p><img src="https://github.com/user-attachments/assets/5c3c669a-a606-459e-8305-cad978e01cb2" alt="ssl pinning using jshook" /></p>
+
+<h2 id="note">Note</h2>
+<p>Pada bulan Juni 2024, JsHook sudah dapat digunakan tanpa LSPosed (Xposed Module), sehingga bisa berjalan hanya dengan Zygisk. Karena referensi tentang penggunaan JsHook langsung via Zygisk masih terbatas, Anda perlu lebih teliti jika mencoba dari berbagai sumber.</p>]]></content><author><name>Aldi</name></author><category term="security" /><category term="security" /><summary type="html"><![CDATA[Artikel ini ditujukan untuk memberikan pemahaman tentang teknik hooking pada aplikasi Android dengan praktis menggunakan JsHook, yang merupakan salah satu aspek penting dalam analisis keamanan aplikasi. Dalam konteks pengembangan dan keamanan perangkat lunak, hooking adalah proses memantau dan memodifikasi eksekusi program pada runtime. Teknik ini sering digunakan oleh peneliti keamanan untuk menganalisis aplikasi dengan lebih mendalam, serta oleh pengembang untuk debugging dan pengujian.]]></summary></entry><entry><title type="html">Cross-Site Scripting (XSS) affects Sitefinity &amp;lt; 15.0 - CVE-2023-27636</title><link href="http://aldisaw.id//jekyll-theme-yat/security/2024/06/03/CVE-2023-27636.html" rel="alternate" type="text/html" title="Cross-Site Scripting (XSS) affects Sitefinity &amp;lt; 15.0 - CVE-2023-27636" /><published>2024-06-03T00:00:00+00:00</published><updated>2024-06-03T00:00:00+00:00</updated><id>http://aldisaw.id//jekyll-theme-yat/security/2024/06/03/CVE-2023-27636</id><content type="html" xml:base="http://aldisaw.id//jekyll-theme-yat/security/2024/06/03/CVE-2023-27636.html"><![CDATA[<h2 id="disclaimer">Disclaimer</h2>
+<p>This Security Advisory is provided on an “as is” basis and do not imply any kind of guarantee or warranty. Your use of the information in this publication or linked materials is at your own risk.</p>
+
+<h2 id="about-manufacturer">About Manufacturer</h2>
+
+<p>Dedicated to propelling business forward in a technology-driven world, Progress (NASDAQ: PRGS) helps businesses drive faster cycles of innovation, fuel momentum and accelerate their path to success. As the trusted provider of the best products to develop, deploy and manage high-impact applications, Progress enables customers to build the applications and experiences they need, deploy where and how they want and manage it all safely and securely. Hundreds of thousands of enterprises, including 1,700 software companies and 3.5 million developers, depend on Progress to achieve their goals—with confidence</p>
+
+<p>Site: https://www.progress.com/</p>
+
+<h2 id="about-the-product">About the product</h2>
+
+<p>Sitefinity CMS is a content management system (CMS) that you use to create, store, manage, and present content on your website. Content and pages in Sitefinity CMS are multilingual and you can use one Sitefinity CMS instance to manage multiple sites that can share content.</p>
+
+<p>Site: https://www.progress.com/documentation/sitefinity-cms</p>
+
+<h2 id="confirmed-vulnerable-versions">Confirmed vulnerable versions</h2>
+<p>Progress Sitefinity CMS: Version under 15.0.0.</p>
+
+<h2 id="summary">Summary</h2>
+<p>In February 2023, Aldi Saputra Wahyudi discovered a vulnerability in the Progress Sitefinity CMS, in the backend of the Sitefinity CMS, all features using SF-Editor are vulnerable to stored Cross-site scripting.</p>
+
+<h2 id="cve-2023-27636---stored-cross-site-scripting-xss">CVE-2023-27636 - Stored Cross-Site Scripting (XSS)</h2>
+
+<p>Attacker as lower privilege
+Victim as Higher privilege</p>
+
+<ol>
+  <li>Login as an Attacker</li>
+  <li>Go to the function using the SF Editor, go to the news page as example</li>
+  <li>Create or Edit news item</li>
+  <li>On the content form, insert the XSS payload as HTML</li>
+  <li>After the payload is inserted, click on the content form (just click) and publish or save</li>
+  <li>If the victim visits the page with XSS payload, XSS will be triggered</li>
+</ol>
+
+<p>Payload: <noalert>&lt;iframe src="javascript:alert(document.domain);"&gt;</noalert></p>
+
+<h2 id="vulnerability-remediation">Vulnerability remediation</h2>
+<p>Progress announced the releases of versions 15.0.0 (Sitefinity CMS), that the previously mentioned vulnerability has been resolved in these updates.</p>
+
+<p>It is important to underline that I (Aldi Saputra Wahyudi) as discoverer. has not conducted new tests nor confirmed the effectiveness of these corrections.</p>
+
+<h2 id="communication-timeline-with-manufacturer">Communication timeline with manufacturer</h2>
+
+<ul>
+  <li>February 8, 2023 – Contact over e-mail.</li>
+  <li>February 8, 2023 – Progress acknowledge receipt of the e-mail.</li>
+  <li>February 14, 2023 – Progress provides a roadmap to fix the issue.</li>
+  <li>November 6, 2023 – Progress reports that the vulnerability has been fixed.</li>
+  <li>Desember 05, 2023 – Publication Issue</li>
+  <li>June 03, 2024 - Public Release</li>
+</ul>]]></content><author><name>Aldi</name></author><category term="security" /><category term="security" /><summary type="html"><![CDATA[Disclaimer This Security Advisory is provided on an “as is” basis and do not imply any kind of guarantee or warranty. Your use of the information in this publication or linked materials is at your own risk.]]></summary></entry></feed>

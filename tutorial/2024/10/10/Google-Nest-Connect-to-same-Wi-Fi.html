@@ -1,0 +1,1080 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="google-translate-customization" content="108d9124921d80c3-80e20d618ff053c8-g4f02ec6f3dba68b7-c">
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Google Nest Inter Tidak Bisa Terkoneksi ke Wifi ? Masalah Google Nest “Connect to same Wi-Fi” | Aldisaw</title>
+<meta name="generator" content="Jekyll v4.3.4">
+<meta property="og:title" content="Google Nest Inter Tidak Bisa Terkoneksi ke Wifi ? Masalah Google Nest “Connect to same Wi-Fi”">
+<meta name="author" content="Aldi">
+<meta property="og:locale" content="en_US">
+<meta name="description" content="Berawal dari punya duit nganggur gue beli google nest biar hidup gue lebih praktis aja serasa punya asisten pribadi dan gue sebelumnya udah pake beberapa smart device spt STB Indihome (walaupun beli yang root), smart lampu dan juga smart stop kontak, selama ini gue pake manual tanpa nyuruh nyuruh pake suara, selain hp gue lemot ya lebih cepet manual juga dari pada harus nunggu respon hp gue yang lemot parah.">
+<meta property="og:description" content="Berawal dari punya duit nganggur gue beli google nest biar hidup gue lebih praktis aja serasa punya asisten pribadi dan gue sebelumnya udah pake beberapa smart device spt STB Indihome (walaupun beli yang root), smart lampu dan juga smart stop kontak, selama ini gue pake manual tanpa nyuruh nyuruh pake suara, selain hp gue lemot ya lebih cepet manual juga dari pada harus nunggu respon hp gue yang lemot parah.">
+<link rel="canonical" href="http://aldisaw.id//jekyll-theme-yat/tutorial/2024/10/10/Google-Nest-Connect-to-same-Wi-Fi.html">
+<meta property="og:url" content="http://aldisaw.id//jekyll-theme-yat/tutorial/2024/10/10/Google-Nest-Connect-to-same-Wi-Fi.html">
+<meta property="og:site_name" content="Aldisaw">
+<meta property="og:type" content="article">
+<meta property="article:published_time" content="2024-10-10T00:00:00+00:00">
+<meta name="twitter:card" content="summary">
+<meta property="twitter:title" content="Google Nest Inter Tidak Bisa Terkoneksi ke Wifi ? Masalah Google Nest “Connect to same Wi-Fi”">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Aldi"},"dateModified":"2024-10-10T00:00:00+00:00","datePublished":"2024-10-10T00:00:00+00:00","description":"Berawal dari punya duit nganggur gue beli google nest biar hidup gue lebih praktis aja serasa punya asisten pribadi dan gue sebelumnya udah pake beberapa smart device spt STB Indihome (walaupun beli yang root), smart lampu dan juga smart stop kontak, selama ini gue pake manual tanpa nyuruh nyuruh pake suara, selain hp gue lemot ya lebih cepet manual juga dari pada harus nunggu respon hp gue yang lemot parah.","headline":"Google Nest Inter Tidak Bisa Terkoneksi ke Wifi ? Masalah Google Nest “Connect to same Wi-Fi”","mainEntityOfPage":{"@type":"WebPage","@id":"http://aldisaw.id//jekyll-theme-yat/tutorial/2024/10/10/Google-Nest-Connect-to-same-Wi-Fi.html"},"url":"http://aldisaw.id//jekyll-theme-yat/tutorial/2024/10/10/Google-Nest-Connect-to-same-Wi-Fi.html"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="icon" href="https://raw.githubusercontent.com/aldisaw/aldisaw.github.io/master/assets/favicon.ico">
+  <link rel="canonical" href="http://aldisaw.id/">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-noto-sans@0.0.72/index.min.css">
+  <link rel="stylesheet" href="/jekyll-theme-yat/assets/css/main.css">
+  <script src="/jekyll-theme-yat/assets/js/main.js"></script><link type="application/atom+xml" rel="alternate" href="http://aldisaw.id//jekyll-theme-yat/feed.xml" title="Aldisaw">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/default.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js"></script>
+<!-- and it's easy to individually load additional languages -->
+<script charset="UTF-8" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/languages/go.min.js" async></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+// Init highlight js
+document.addEventListener('DOMContentLoaded', function(event) {
+  var els = document.querySelectorAll('pre code')
+
+  function addLangData(block) {
+    var outer = block.parentElement.parentElement.parentElement;
+    var lang = block.getAttribute('data-lang');
+    for (var i = 0; i < outer.classList.length; i++) {
+      var cls = outer.classList[i];
+      if (cls.startsWith('language-')) {
+        lang = cls;
+        break;
+      }
+    }
+    if (!lang) {
+      cls = block.getAttribute('class');
+      lang = cls ? cls.replace('hljs ', '') : '';
+    }
+    if (lang.startsWith('language-')) {
+      lang = lang.substr(9);
+    }
+    block.setAttribute('class', 'hljs ' + lang);
+    block.parentNode.setAttribute('data-lang', lang);
+  }
+
+  function addBadge(block) {
+    var enabled = ('true' || 'true').toLowerCase();
+    if (enabled == 'true') {
+      var pre = block.parentElement;
+      pre.classList.add('badge');
+    }
+  }
+
+  function handle(block) {
+    addLangData(block);
+    addBadge(block)
+    hljs.highlightBlock(block);
+  }
+
+  for (var i = 0; i < els.length; i++) {
+    var el = els[i];
+    handle(el);
+  }
+});
+</script>
+
+<style>
+  /* code language badge */
+  pre.badge::before {
+    content: attr(data-lang);
+    color: #fff;
+    background-color: #ff4e00;
+    padding: 0 .5em;
+    border-radius: 0 2px;
+    text-transform: uppercase;
+    text-align: center;
+    min-width: 32px;
+    display: inline-block;
+    position: absolute;
+    right: 0;
+  }
+
+  /* fix wrong badge display for firefox browser */
+  code > table pre::before {
+    display: none;
+  }
+</style>
+<script src="//cdnjs.cloudflare.com/ajax/libs/photoswipe/5.3.7/umd/photoswipe-lightbox.umd.min.js" async></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/photoswipe/5.3.7/umd/photoswipe.umd.min.js" async></script>
+<link href="//cdnjs.cloudflare.com/ajax/libs/photoswipe/5.3.7/photoswipe.min.css" rel="stylesheet">
+<style>
+  .pswp .pswp__container .pswp__img {
+    background-color: white;
+  }
+</style>
+
+<script>
+  function initPhotoSwipe() {
+    let customOptions = {};
+
+    try {
+      const data = ``.replaceAll("=>", ":");
+      customOptions = JSON.parse(data);
+    } catch (e) {
+      console.info("Invalid custom photo previewer options! " + e.message);
+    }
+
+    // Define object and gallery options
+    const options = Object.assign(
+      {
+        gallery: "section.main",
+        children: "a.photo-swipe",
+        photo_scale: 2,
+        // dynamic import is not supported in UMD version
+        pswpModule: PhotoSwipe,
+      },
+      customOptions
+    );
+
+    const galleryEl = document.querySelector(options.gallery);
+    if (!galleryEl) {
+      return;
+    }
+
+    const imgEls = [];
+    const els = galleryEl.querySelectorAll("img:not(.emoji)");
+    els.forEach((el) => {
+      if (el.src.trim() == "") {
+        return;
+      }
+      if (!imgEls.includes(el)) {
+        imgEls.push(el);
+      }
+    });
+
+    if (imgEls.length === 0) {
+      return;
+    }
+
+    imgEls.forEach((imgEl) => {
+      imgEl.outerHTML = `
+      <a class="photo-swipe"
+        href="${imgEl.src}"
+        data-pswp-width="${
+          Math.max(imgEl.naturalWidth, imgEl.width) * options.photo_scale
+        }"
+        data-pswp-height="${
+          Math.max(imgEl.naturalHeight, imgEl.height) * options.photo_scale
+        }"
+        data-pswp-caption="${imgEl.getAttribute("caption") || imgEl.alt}"
+        target="_blank">
+        ${imgEl.outerHTML}
+      </a>`;
+    });
+
+    // Initialize PhotoSwipe 5
+    var lightbox = new PhotoSwipeLightbox(options);
+
+    lightbox.init();
+  }
+
+  window.addEventListener("load", initPhotoSwipe);
+</script>
+</head>
+<body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<header class="site-header site-header-transparent" role="banner">
+
+  <div class="wrapper">
+    <div class="site-header-inner">
+<span class="site-brand"><a class="site-brand-inner" rel="author" href="/jekyll-theme-yat/">
+  <img class="site-favicon" title="Aldisaw" src="https://raw.githubusercontent.com/aldisaw/aldisaw.github.io/master/assets/favicon.ico" onerror="this.style.display='none'">
+  Aldisaw
+</a>
+</span><nav class="site-nav">
+          <input type="checkbox" id="nav-trigger" class="nav-trigger">
+          <label for="nav-trigger">
+            <span class="menu-icon">
+              <svg viewbox="0 0 18 15" width="18px" height="15px">
+                <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"></path>
+              </svg>
+            </span>
+          </label>
+
+          <div class="trigger">
+<a class="page-link" href="/jekyll-theme-yat/">HOME</a><a class="page-link" href="/jekyll-theme-yat/categories.html">CATEGORIES</a><a class="page-link" href="/jekyll-theme-yat/tags.html">TAGS</a>
+
+
+
+
+
+
+
+
+
+<span class="page-link">
+
+
+
+<div id="google_translate_element" style="display: none;">
+</div>
+
+<span class="ct-language">
+  <ul class="list-unstyled ct-language-dropdown">
+    
+      <li>
+        <a href="#" class="lang-select" data-lang="en">
+          
+          <img src="https://cdn.countryflags.com/thumbs/united-states-of-america/flag-400.png" title="English">
+          
+        </a>
+      </li>
+    
+      <li>
+        <a href="#" class="lang-select" data-lang="fr">
+          
+          <img src="https://cdn.countryflags.com/thumbs/france/flag-400.png" title="French">
+          
+        </a>
+      </li>
+    
+      <li>
+        <a href="#" class="lang-select" data-lang="zh-CN">
+          
+          <img src="https://cdn.countryflags.com/thumbs/china/flag-400.png" title="Chinese(Simple)">
+          
+        </a>
+      </li>
+    
+      <li>
+        <a href="#" class="lang-select" data-lang="ja">
+          
+          <img src="https://cdn.countryflags.com/thumbs/japan/flag-400.png" title="Japanese">
+          
+        </a>
+      </li>
+    
+      <li>
+        <a href="#" class="lang-select" data-lang="ko">
+          
+          <img src="https://cdn.countryflags.com/thumbs/south-korea/flag-400.png" title="Korean">
+          
+        </a>
+      </li>
+    
+      <li>
+        <a href="#" class="lang-select" data-lang="ru">
+          
+          <img src="https://cdn.countryflags.com/thumbs/russia/flag-400.png" title="Russian">
+          
+        </a>
+      </li>
+    
+  </ul>
+</span>
+
+<script type="text/javascript">
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({
+    pageLanguage: 'en',
+    autoDisplay: false,
+    layout: google.translate.TranslateElement.InlineLayout.VERTICAL
+  }, 'google_translate_element');
+
+  // Links to cross-origin destinations are unsafe
+  var gll = document.getElementsByClassName('goog-logo-link')[0];
+  if (gll) {
+    gll.setAttribute('rel', 'noopener');
+  }
+
+  function restoreLang() {
+    var iframe = document.getElementsByClassName('goog-te-banner-frame')[0];
+    if (!iframe) return;
+
+    var innerDoc = iframe.contentDocument || iframe.contentWindow.document;
+    var restore_el = innerDoc.getElementsByTagName("button");
+
+    for (var i = 0; i < restore_el.length; i++) {
+      if (restore_el[i].id.indexOf("restore") >= 0) {
+        restore_el[i].click();
+        var close_el = innerDoc.getElementsByClassName("goog-close-link");
+        close_el[0].click();
+        return;
+      }
+    }
+  }
+
+  function triggerHtmlEvent(element, eventName) {
+    var event;
+    if (document.createEvent) {
+      event = document.createEvent('HTMLEvents');
+      event.initEvent(eventName, true, true);
+      element.dispatchEvent(event);
+    } else {
+      event = document.createEventObject();
+      event.eventType = eventName;
+      element.fireEvent('on' + event.eventType, event);
+    }
+  }
+
+  var googleCombo = document.querySelector("select.goog-te-combo");
+  var langSelect = document.querySelector('.ct-language');
+  langSelect.addEventListener('click', function(event) {
+    if (!event.target) {
+      return;
+    }
+
+    var selected = document.querySelector('.ct-language .ct-language-selected');
+    if (selected) {
+      selected.classList.remove('ct-language-selected');
+    }
+
+    var target = event.target;
+    while (target && target !== langSelect ) {
+      if (target.matches('.lang-select')) {
+        break;
+      }
+      target = target.parentElement;
+    }
+
+    if (target && target.matches('.lang-select')) {
+      var lang = target.getAttribute('data-lang');
+      if (googleCombo.value == lang) {
+        restoreLang();
+      } else {
+        target.parentElement.classList.add('ct-language-selected');
+        googleCombo.value = lang;
+        triggerHtmlEvent(googleCombo, 'change');
+      }
+    }
+
+    event.preventDefault();
+  });
+}
+</script>
+
+<script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" async></script>
+</span>
+</div>
+        </nav>
+</div>
+  </div>
+</header>
+
+<script>
+  function initHeader() {
+    var lastScrollY = getScrollPos().y;
+    var documentElement = document.documentElement;
+
+    function storeScrollData() {
+      var y = getScrollPos().y;documentElement.setAttribute("data-header-transparent", "");var scrollStatus = "";
+
+      if (y <= 0) {
+        scrollStatus = "top";
+      } else if ((window.innerHeight + y) >= document.body.offsetHeight) {
+        scrollStatus = "bottom";
+      } else {
+        var isScrollDown = (y - lastScrollY > 0) ? true : false;
+        scrollStatus = isScrollDown ? "down" : "up";
+      }
+
+      lastScrollY = y;
+      documentElement.setAttribute("data-scroll-status", scrollStatus);
+    }
+
+    window.addEventListener('scroll', function(e) {
+      storeScrollData();
+    });
+
+    storeScrollData();
+  }
+  document.addEventListener('DOMContentLoaded', initHeader);
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<style>
+    html .page-banner {
+      background: #000;
+    }
+  </style>
+<style>html .page-banner {
+      height:  36.8vh;
+      min-height: 38vh;
+    }
+    html[data-scroll-status="top"] .page-banner {
+      height: 100vh;
+    }
+  </style>
+<style>
+    html .page-banner .page-banner-img > *:first-child {
+      opacity: 0.618;
+    }
+
+    html[data-theme="dark"] .page-banner .page-banner-img > *:first-child {
+      opacity: 0.443724;
+    }
+  </style>
+<style>
+    html .page-banner .page-banner-inner > *:first-child > *:nth-child(1) {
+      font-size: 4.25em; font-weight: bold; text-decoration: underline
+    }
+  </style>
+<style>
+    html .page-banner .page-banner-inner > *:first-child > *:nth-child(2) {
+      color: gold
+    }
+  </style>
+<section class="page-banner">
+    <div class="page-banner-img">
+<div style="background-image: url(https://github.com/user-attachments/assets/846533c6-b510-4818-a1f5-cb67833be52d)"></div>
+        <img class="img-placeholder" src="https://github.com/user-attachments/assets/846533c6-b510-4818-a1f5-cb67833be52d">
+</div>
+    <div class="wrapper">
+      <div class="page-banner-inner">
+<header class="post-header">
+  <h1 class="post-title p-name" itemprop="name headline">Google Nest Inter Tidak Bisa Terkoneksi ke Wifi ? Masalah Google Nest "Connect to same Wi-Fi"</h1>
+  <h2 class="post-subtitle"></h2>
+
+  <div class="post-meta">
+    <time class="dt-published" datetime="2024-10-10T00:00:00+00:00" itemprop="datePublished"><i class="fa fa-calendar"></i> Oct 10, 2024
+    </time><span class="post-author left-vsplit"><i class="fa fa-pencil"></i> Aldi</span>
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> About 5 mins</span>
+  </div>
+<div class="post-tags"><a class="post-tag" href="/jekyll-theme-yat/tags.html#tutorial">#tutorial</a></div></header>
+</div>
+    </div>
+  </section><script>
+  function hashLocate(hashValue) {
+    hashValue = hashValue.replace(/^.*#h-/, '');
+    hashValue = decodeURIComponent(hashValue);
+    var element = document.getElementById(hashValue);
+
+    if (!element) {
+      return;
+    }
+
+    var header = document.querySelector('header.site-header');
+    var headerRect = header.getBoundingClientRect();
+    var headerTop = Math.floor(headerRect.top);
+    var headerHeight = Math.floor(headerRect.height);
+    var scrollPos = getScrollPos();
+    var offsetY = element.offsetTop - (headerTop + headerHeight + 20);
+
+    if (offsetY == scrollPos.y) {
+      return;
+    }
+
+    if (headerTop == 0  && offsetY > scrollPos.y) {
+      offsetY += headerHeight + 2;
+    } else if (headerTop < 0  && offsetY < scrollPos.y) {
+      offsetY -= headerHeight - 2;
+    }
+
+    smoothScrollTo(offsetY);
+  }
+
+  // The first event occurred
+  window.addEventListener('load', function(event) {
+    if (window.location.hash) {
+      hashLocate(window.location.hash);
+    }
+  });
+
+  // The first event occurred
+  window.addEventListener('click', function(event) {
+    if (event.target.tagName.toLowerCase() == 'a') {
+      hashLocate(event.target.getAttribute('href'));
+    }
+  });
+</script>
+<div class="theme-toggle">
+  <input type="checkbox" id="theme-switch">
+  <label for="theme-switch">
+    <div class="toggle"></div>
+    <div class="names">
+      <p class="light">Light</p>
+      <p class="dark">Dark</p>
+    </div>
+  </label>
+</div>
+
+
+
+
+<script>
+  (function() {
+    var sw = document.getElementById('theme-switch');
+    var html = document.getElementsByTagName('html')[0];
+    var nightModeOption = ('auto' || 'auto').toLowerCase();
+    var storage = nightModeOption === 'manual'
+        ? localStorage
+        : sessionStorage;
+    var themeData = loadThemeData();
+
+    function saveThemeData(data) {
+      storage.setItem('theme', JSON.stringify(data));
+    }
+
+    function loadThemeData() {
+      var data = storage.getItem('theme');
+      try {
+        data = JSON.parse(data ? data : '');
+      } catch(e) {
+        data = { nightShift: undefined, autoToggleAt: 0 };
+        saveThemeData(data);
+      }
+      return data;
+    }
+
+    function handleThemeToggle(nightShift) {
+      themeData.nightShift = nightShift;
+      saveThemeData(themeData);
+      html.dataset.theme = nightShift ? 'dark' : 'light';
+      setTimeout(function() {
+        sw.checked = nightShift ? true : false;
+      }, 50);
+    }
+
+    function autoThemeToggle() {
+      // Next time point of theme toggle
+      var now = new Date();
+      var toggleAt = new Date();
+      var hours = now.getHours();
+      var nightShift = hours >= 19 || hours <=7;
+
+      if (nightShift) {
+        if (hours > 7) {
+          toggleAt.setDate(toggleAt.getDate() + 1);
+        }
+        toggleAt.setHours(7);
+      } else {
+        toggleAt.setHours(19);
+      }
+
+      toggleAt.setMinutes(0);
+      toggleAt.setSeconds(0);
+      toggleAt.setMilliseconds(0)
+
+      var delay = toggleAt.getTime() - now.getTime();
+
+      // auto toggle theme mode
+      setTimeout(function() {
+        handleThemeToggle(!nightShift);
+      }, delay);
+
+      return {
+        nightShift: nightShift,
+        toggleAt: toggleAt.getTime()
+      };
+    }
+
+    // Listen the theme toggle event
+    sw.addEventListener('change', function(event) {
+      handleThemeToggle(event.target.checked);
+    });
+
+    if (nightModeOption == 'auto') {
+      var data = autoThemeToggle();
+
+      // Toggle theme by local setting
+      if (data.toggleAt > themeData.autoToggleAt) {
+        themeData.autoToggleAt = data.toggleAt;
+        handleThemeToggle(data.nightShift);
+      } else {
+        handleThemeToggle(themeData.nightShift);
+      }
+    } else if (nightModeOption == 'manual') {
+      handleThemeToggle(themeData.nightShift);
+    } else {
+      var nightShift = themeData.nightShift;
+      if (nightShift === undefined) {
+        nightShift = nightModeOption === 'on';
+      }
+      handleThemeToggle(nightShift);
+    }
+  })();
+</script>
+<div id="click-to-top" class="click-to-top">
+  <i class="fa fa-arrow-up"></i>
+</div>
+<script>
+  (function () {
+    const clickToTop = document.getElementById('click-to-top');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 100) {
+        clickToTop.classList.add('show')
+      }else {
+        clickToTop.classList.remove('show')
+      }
+    });
+    clickToTop.addEventListener('click', () => {
+      window.smoothScrollTo(0);
+    });
+  })();
+</script>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <div class="framework">
+  <section class="main">
+
+     <div class="post">
+  <section>
+
+
+
+
+
+
+
+
+
+<article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+    <div class="post-content e-content" itemprop="articleBody">
+
+      <p>Berawal dari punya duit nganggur gue beli google nest biar hidup gue lebih praktis aja serasa punya asisten pribadi dan gue sebelumnya udah pake beberapa smart device spt STB Indihome (walaupun beli yang root), smart lampu dan juga smart stop kontak, selama ini gue pake manual tanpa nyuruh nyuruh pake suara, selain hp gue lemot ya lebih cepet manual juga dari pada harus nunggu respon hp gue yang lemot parah.</p>
+
+<p>Akhirnya gue beli Google Nest via Tokopedia yang berwarna chalk dengan menggunakan fitur sorting harga dari harga yang termurah, dapet lah gue dengan harga 400k sudah full package dapet boxnya dan yang penting produknya baru! tapi sellernya ini belom pernah ada yang beli produk google nestnya tapi ga masalah lah kan ada fitur komplain kalau ada apa-apa.</p>
+
+<p>Setelah gue nunggu sekitar 3 hari akhirnya barang sampe, gue coba set up lah dari siang setelah berjam-jam gue coba setup gue mulai panik tuh, gue yang bego apa emang ada yang salah, karna gue setup tanpa menggunakan manual booknya, tapi kalau gue bego smart device yang lain aman aman aja dah</p>
+
+<p>Pada awalnya gue udah ngerasa ga beres saat google nest ini memberikan keterangan berikut “This Nest Mini was manufactured for a different country, and may not be compatible with your Wi-Fi network” 
+Gue coba nonton review google nest di youtube ga ada tuh yang dapet keterangan kaya gini, gue makin panik lah masa engga.</p>
+
+<p><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgsqo-gvw0DEraGfjxkFKSUyDNs5YsS9km3BqmKu6AOJc1v9r6nM9EE3CrMxzAFuowaAStHqmcTwJv7tSPHyaq04yjQEbXiJsrcHYDrqNVdNlrQb0Zu_NhdTCv4oinhG2CRyJrzGiv-BCX9/w242-h430/image.png" alt="Nest Mini was manufactured for a different country"></p>
+
+<p>Pada saat coba koneksi ke wifi ada dan dapat keterangan berikut ini “Connect to same WI-FI” “Your nest mini was setup successfully but can’t be found” “Turn off AP Isolation” dan gue berfikir berarti benar nih nest mini ini belum support jaringan indo atau indihome doang ya, karna gue kan pelanggan setia indihome jadi gatau kalau dicoba pake provider lain.</p>
+
+<p><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg5nJ0HheSPxlpfJyMbFQTsmbUTKxJHNabsuNCGvkZtVsKbNEreuNyc_rs7_NOyP6s89znLFXxsVRTbIU3wx23UXSg2C36DzaOCZspUsfitCQoOqSiMsu1fVq_TPEQZ9El_c0ml_CMOvfwV/w276-h490/image.png" alt="Turn OFF AP Isolation!"></p>
+
+<p>Setelah gue coba factory reset - setup - factory reset - set up ulang mungkin udah lebih dari 10x dan hasilnya pun nihil!</p>
+
+<p>Akhirnya gue complain lah ke si sellernya tapi doi menjawab kaya begini</p>
+
+<p><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgD-NBCgJrWVhpq6ZYRM6kIV3CagXL_Jr71UjBpzEvOT1vnMONLfdQTrttSMfmzXhwQ6f6l5FBp9kh-VqEva2xmJJTNbeczCEbVByc4J0k6fmF5oVVnO_kO3yV336p6GHLlk8vvvRb7imDR/w417-h284/image.png" alt="jawaban seller"></p>
+
+<p>Dari jawaban seller gue menyimpulkan bahwa seller ini sama-sama gatau dan hanya nyuruh mengusahakan dengan berbagai cara yang dimana sudah gue lakukan duluan</p>
+
+<p>Sebagai anak IT gue tau masalah AP Isolation ini adalah masalah jaringan yang seharusnya ada di settingan router, AP Isolation ini biasanya digunakan untuk wifi umum kaya di hotel, bandara dll yang setiap user jalurnya berbeda, jadi setelah gue coba login admin 192.168.100.1 tapi router HG8245A ini tidak ada settingan AP Isolation. Oiya sebelumnya gue coba juga tuh pake hotspot hp dengan provider tri, dan ternyata bisa!! ya karna hotspot kan memang satu jaringan antara device satu dengan yang lainnya tapi masa gue ngehotspot terus !?.</p>
+
+<p>Akhirnya gue hubungi pihak indihome via twitter, dan kalian pasti tau apa yang mereka suruh lakukan…. ya betul restart modem dan ya pastinya ga ngaruh karna gue minta cek ap isolation tapi solusinya restart modem, setelah gue kontak juga via email dan twitter cs indihome juga sepertinya bingung dengan masalahnya, jadi langsung disuruh isi form kendala.</p>
+
+<p>Karna minim info tentang masalah Google Nest ini sambil gue twitteran nunggu balesan cs indihome gue cari lah “AP Isolation” di pencarian twitter dan nemu juga yang kendalanya sama… Akhirnya gue ga sendirian</p>
+
+<p>Setelah reply replyan twit dengan mas aziz, gue tanya “ada solusi ga bro dari indihome ?” mas aziz ini memberikan balasan sekaligus solusi sebagai berikut</p>
+
+<p><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjupYaycW-y2qv2pQYF3hg2vcQYIJwGy3eeTYjsH5iuFbKjTBVyylAbls65g5zLCZ9AKi_XeKEICMEtAB6oLGGxNSJhX2PVtmhR2lQ2tp6x5Q0vtiJfR_cPuR_nmRNAxQjxQnpA9w6Eg384/w519-h219/image.png" alt="sensor karna ga izin yang punya akun guys"></p>
+
+<p>sensor karna ga izin yang punya akun guys</p>
+
+<p>Jadi untuk masalah ini solusinya menggunakan router lain yang disambung dari routernya indihome
+Tapi sampe sekarang gue belum lakuin ini karna beberapa hal, salah satunya listrik yang dimana 2 router berjalan selama 24jam, yang kedua kaya aneh aja gitu punya 2 wifi dan alasan yang ketiga adalah masa udah beli google nest sort paling murah jadi harus beli router yang harganya bisa sama kaya beli google nest yang garansi indo.</p>
+
+<p>Akhirnya gue punya ide daripada harus beli ye kan mending gue buat wifi sendiri aja ngandalin komputer gue, karna punya receiver wifi merk tp-link WN727n bekas laptop gue yang wifi adapternya rusak, receiver itu gue pasang di PC dan dijadiin “router portable” dan install aplikasi Connectify</p>
+
+<p><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgImb_vnfGvPhL4zB5spamb17pcb880IdHTzinsYP0p7ZTh_za6mV86c205wIEb0iehHb4wGyz-DSD_ecxTRT7Ttfm7rNTxl2hf2WfqIwMgaVZM_fCw276CRLrldYhYuhWwkU-F4JPWugKd/w258-h466/image.png" alt="Connectify to Google Nest"></p>
+
+<p>Akhirnya komplain gue ke tokopedia dibatalkan, indihome tak kunjung ada solusi. Dan sampe sekarang Google Nest gue bisa berjalan ketika komputer gue nyala saja.</p>
+
+<h2 id="kesimpulan-dan-solusi">Kesimpulan dan Solusi</h2>
+
+<p>Setelah saya mencoba-coba akhirnya dapet solusi, yaitu dengan cara menggunakan koneksi dummy.
+Misalnya kamu punya wifi yang ingin konek dengan google nest dengan SSID ‘wifialdisaw’
+Non aktifkan ‘wifialdisaw’ yang asli dan buat koneksi dengan hotspot hp atau dengan connectify dengan SSID yang sama yaitu ‘wifialdisaw’ lalu setup ulang google nestnya.
+Setelah set up dan berhasil connect sekarang non aktifkan wifi dummy tadi, dan aktifkan wifi yang asli
+Selamat berhasil terkoneksi dengan normal antara google nest dengan wifi yang diinginkan</p>
+
+
+    </div>
+
+</article>
+<div class="post-nav">
+<a class="previous" href="/jekyll-theme-yat/security/2024/08/01/Android-Pentest-Without-Connect-PC-(Wireless).html" title="Android Pentest Without Connect to PC (Wireless) | JsHook Tutorial">Android Pentest Without Connect to PC...</a><span></span>
+</div>
+<div class="post-related">
+      <div>Related Articles</div>
+      <ul>
+        <li class="top-post">
+          <a class="post-link" href="/jekyll-theme-yat/security/2024/06/03/CVE-2023-27636.html" title="Cross-Site Scripting (XSS) affects Sitefinity &lt; 15.0 - CVE-2023-27636">
+            Cross-Site Scripting (XSS) affects Sitefinity &lt; 15.0 - CVE-2023-27636<span class="post-badges">
+  <span class="post-badge badge-top">TOP</span>
+  <span class="post-badge badge-new">NEW</span>
+</span>
+</a>
+        </li>
+<li class="top-post">
+          <a class="post-link" href="/jekyll-theme-yat/security/2024/08/01/Android-Pentest-Without-Connect-PC-(Wireless).html" title="Android Pentest Without Connect to PC (Wireless) | JsHook Tutorial">
+            Android Pentest Without Connect to PC (Wireless) | JsHook Tutorial<span class="post-badges">
+  <span class="post-badge badge-top">TOP</span>
+  <span class="post-badge badge-new">NEW</span>
+</span>
+</a>
+        </li>
+<li class="top-post">
+          <a class="post-link" href="/jekyll-theme-yat/tutorial/2024/10/10/Google-Nest-Connect-to-same-Wi-Fi.html" title='Google Nest Inter Tidak Bisa Terkoneksi ke Wifi ? Masalah Google Nest "Connect to same Wi-Fi"'>
+            Google Nest Inter Tidak Bisa Terkoneksi ke Wifi ? Masalah Google Nest...<span class="post-badges">
+  <span class="post-badge badge-top">TOP</span>
+  <span class="post-badge badge-new">NEW</span>
+</span>
+</a>
+        </li>
+</ul>
+    </div>
+<div class="post-comments"></div></section>
+</div>
+
+
+  </section>
+  <section class="sidebar" style="margin-left: 15px;">
+    <!-- Get sidebar items --></section>
+</div>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/jekyll-theme-yat/"></data>
+
+  <div class="wrapper">
+    <div class="site-footer-inner">
+<div>
+<span class="copyleft">©</span> 2024 </div>
+      <div class="footer-col rss-subscribe">Subscribe <a href="/jekyll-theme-yat/feed.xml">via RSS</a>
+</div>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
