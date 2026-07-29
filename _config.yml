@@ -235,8 +235,8 @@ header_pages:
 #   follow_site_theme: true
 
 # Build settings
-# highlighter: none
 markdown: kramdown
+highlighter: rouge
 kramdown:
   input: GFM
 
