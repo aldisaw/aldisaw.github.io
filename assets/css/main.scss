@@ -56,32 +56,30 @@ $selection-background-color: unquote("{{ site.selection.background_color }}");
 
 /* --- MODERNISASI DESAIN ALDISAW.ID --- */
 
-/* 1. Gunakan Font Modern (Inter/System Font) dan perbaiki warna dasar */
 body {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  color: #2c3e50; /* Warna teks yang lebih lembut di mata daripada hitam pekat */
-  background-color: #f8f9fa; /* Warna latar belakang sedikit abu-abu agar konten lebih menonjol */
-  line-height: 1.7; /* Jarak antar baris yang nyaman untuk membaca */
+  color: #2c3e50;
+  background-color: #f8f9fa;
+  line-height: 1.7;
 }
 
-/* 2. Buat Card Postingan (Artikel) Lebih Elegan */
+/* Card Postingan (Artikel) */
 .post-item, .article-content, .sidebar {
   background: #ffffff;
-  border-radius: 12px; /* Sudut membulat */
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); /* Bayangan lembut */
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
   padding: 24px;
   margin-bottom: 24px;
   border: 1px solid rgba(0,0,0,0.02);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-/* Efek saat artikel disorot mouse (Hover) */
 .post-item:hover {
   transform: translateY(-3px);
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
 }
 
-/* 3. Percantik Tampilan Kode (Cocok untuk blog IT/Pentest Anda) */
+/* Percantik Tampilan Kode */
 pre, code {
   background-color: #1e1e1e !important;
   color: #d4d4d4;
@@ -90,7 +88,6 @@ pre, code {
   font-family: 'Fira Code', 'Courier New', Courier, monospace;
 }
 
-/* 4. Perbaiki Tombol dan Link */
 a {
   color: #3498db;
   text-decoration: none;
@@ -100,36 +97,26 @@ a:hover {
   color: #2980b9;
 }
 
-/* --- PERBAIKAN RESPONSIVITAS (MOBILE) --- */
-@media screen and (max-width: 768px) {
-  /* Kurangi padding agar layar HP tidak terlalu sempit */
-  .post-item, .article-content {
-    padding: 16px;
-    border-radius: 8px;
-  }
-  
-  /* Ukuran font disesuaikan untuk HP */
-  body {
-    font-size: 16px; 
-  }
-
-  h1 { font-size: 1.8rem; }
-  h2 { font-size: 1.5rem; }
-  h3 { font-size: 1.2rem; }
-
-  /* Pastikan gambar dalam postingan tidak keluar batas */
-  img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 8px;
-  }
-}
-
-/* --- UBAH FONT HEADER / BANNER UTAMA AGAR LEBIH KEREN --- */
-/* Import font modern dari Google Fonts */
+/* --- PERBAIKAN WARNA JUDUL ARTIKEL (TERANG & GELAP) --- */
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700;800&display=swap');
 
-/* Terapkan font khusus pada teks judul besar di Header/Banner */
+/* Judul Artikel di Beranda / Daftar Postingan (Mode Terang) */
+.post-item h3 a, 
+.post-item-title a, 
+.post-title a {
+  font-family: 'Plus Jakarta Sans', sans-serif !important;
+  font-weight: 700 !important;
+  color: #1e293b !important; 
+  transition: color 0.2s ease;
+}
+
+.post-item h3 a:hover, 
+.post-item-title a:hover, 
+.post-title a:hover {
+  color: #3b82f6 !important;
+}
+
+/* Judul Utama di Banner / Header Website */
 .site-brand h1, 
 .site-title, 
 .banner h1, 
@@ -137,13 +124,10 @@ a:hover {
   font-family: 'Plus Jakarta Sans', sans-serif !important;
   font-weight: 800 !important;
   letter-spacing: -0.5px;
-  background: linear-gradient(135deg, #ffffff 0%, #cbd5e1 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: #ffffff !important;
   text-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
-/* Sub-judul di header agar terlihat makin selaras */
 .site-brand p, 
 .banner p, 
 .site-subtitle {
@@ -152,23 +136,48 @@ a:hover {
   opacity: 0.9;
 }
 
-/* Perbaiki responsivitas judul artikel di HP */
+/* --- PENYESUAIAN DARK MODE OTOMATIS --- */
+[data-theme="dark"] .post-item h3 a, 
+[data-theme="dark"] .post-item-title a, 
+[data-theme="dark"] .post-title a,
+body.dark .post-item h3 a,
+body.dark .post-item-title a {
+  color: #f8fafc !important; /* Otomatis putih terang saat Dark Mode */
+}
+
+/* --- PERBAIKAN RESPONSIVITAS (MOBILE) --- */
 @media screen and (max-width: 768px) {
+  .post-item, .article-content {
+    padding: 16px;
+    border-radius: 8px;
+  }
+  
+  body {
+    font-size: 16px; 
+  }
+
   .post-header h1, .article-title, h1.post-title {
-    font-size: 1.8rem !important; /* Ukuran disesuaikan agar pas di layar HP */
+    font-size: 1.8rem !important;
     line-height: 1.3 !important;
     word-break: break-word;
   }
 
-  /* Batasi ukuran banner utama di HP agar tidak terlalu tinggi */
+  h2 { font-size: 1.5rem; }
+  h3 { font-size: 1.2rem; }
+
+  img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+  }
+
   .banner, .site-brand {
     min-height: 250px !important;
     max-height: 350px !important;
   }
 }
 
-/* --- 2. MEMBERSIHKAN SIDEBAR BLANK DI MODE DESKTOP --- */
-/* Menghilangkan seluruh kontainer atau elemen geopattern/canvas kosong di sidebar */
+/* --- MEMBERSIHKAN SIDEBAR BLANK DI MODE DESKTOP --- */
 .sidebar .geopattern, 
 .sidebar canvas, 
 .sidebar .sidebar-bg,
@@ -179,16 +188,13 @@ a:hover {
   padding: 0 !important;
 }
 
-/* Jika kotak putih tersebut adalah elemen widget bawaan yang tidak ada isinya, sembunyikan area kosongnya */
 .sidebar > *:empty {
   display: none !important;
 }
 
-/* Perbaiki tampilan badge postingan agar tidak blank putih */
-/* --- 1. MEMBEDAKAN WARNA BADGE TOP & NEW --- */
-/* Badge TOP: Warna abu-abu gelap / monokrom mewah (tidak mencolok) */
+/* --- BADGE TOP & NEW YANG ELEGAN --- */
 .post-badge.badge-top, .post-badge:not(.badge-new) {
-  background-color: #334155 !important; /* Abu-abu kebiruan gelap yang bersih */
+  background-color: #334155 !important;
   color: #f1f5f9 !important;
   padding: 1px 6px;
   border-radius: 4px;
@@ -198,10 +204,9 @@ a:hover {
   text-transform: uppercase;
 }
 
-/* Badge NEW: Warna biru lembut ala tema modern (tidak mencolok) */
 .post-badge.badge-new {
-  background-color: #e2e8f0 !important; /* Abu-abu terang elegan */
-  color: #0f172a !important;            /* Teks gelap kontras */
+  background-color: #e2e8f0 !important;
+  color: #0f172a !important;
   padding: 1px 6px;
   border-radius: 4px;
   font-size: 0.65rem;
@@ -209,7 +214,3 @@ a:hover {
   letter-spacing: 0.5px;
   text-transform: uppercase;
 }
-/* Jika ingin menyembunyikan badge yang rusak secara total */
-/* .post-badge { display: none !important; } */
-
-
