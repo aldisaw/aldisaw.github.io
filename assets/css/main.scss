@@ -214,3 +214,40 @@ body.dark .post-item-title a {
   letter-spacing: 0.5px;
   text-transform: uppercase;
 }
+
+/* --- PERBAIKAN BACKGROUND CARD DI DARK MODE --- */
+[data-theme="dark"] .post-item, 
+[data-theme="dark"] .article-content, 
+[data-theme="dark"] .sidebar,
+body.dark .post-item,
+body.dark .article-content,
+body.dark .sidebar {
+  background: #1e293b !important; /* Latar belakang card menjadi gelap elegan */
+  border-color: rgba(255, 255, 255, 0.05) !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2) !important;
+}
+
+/* Memperbaiki warna teks paragraf/deskripsi di dalam card saat Dark Mode */
+[data-theme="dark"] .post-item p,
+[data-theme="dark"] .article-content p,
+body.dark .post-item p,
+body.dark .article-content p {
+  color: #94a3b8 !important; /* Warna abu-abu terang agar nyaman dibaca */
+}
+
+/* Memperbaiki warna teks dan border di dalam Sidebar saat Dark Mode */
+[data-theme="dark"] .sidebar,
+[data-theme="dark"] .sidebar a,
+[data-theme="dark"] .sidebar li,
+body.dark .sidebar,
+body.dark .sidebar a,
+body.dark .sidebar li {
+  color: #e2e8f0 !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Memperbaiki warna teks info meta (Tanggal, Author, Waktu Baca) di Dark Mode */
+[data-theme="dark"] .post-meta,
+body.dark .post-meta {
+  color: #64748b !important;
+}
