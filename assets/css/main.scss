@@ -53,3 +53,74 @@ $selection-background-color: unquote("{{ site.selection.background_color }}");
 }
 
 @import "yat";
+
+/* --- MODERNISASI DESAIN ALDISAW.ID --- */
+
+/* 1. Gunakan Font Modern (Inter/System Font) dan perbaiki warna dasar */
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  color: #2c3e50; /* Warna teks yang lebih lembut di mata daripada hitam pekat */
+  background-color: #f8f9fa; /* Warna latar belakang sedikit abu-abu agar konten lebih menonjol */
+  line-height: 1.7; /* Jarak antar baris yang nyaman untuk membaca */
+}
+
+/* 2. Buat Card Postingan (Artikel) Lebih Elegan */
+.post-item, .article-content, .sidebar {
+  background: #ffffff;
+  border-radius: 12px; /* Sudut membulat */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); /* Bayangan lembut */
+  padding: 24px;
+  margin-bottom: 24px;
+  border: 1px solid rgba(0,0,0,0.02);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Efek saat artikel disorot mouse (Hover) */
+.post-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+/* 3. Percantik Tampilan Kode (Cocok untuk blog IT/Pentest Anda) */
+pre, code {
+  background-color: #1e1e1e !important;
+  color: #d4d4d4;
+  border-radius: 8px;
+  padding: 12px;
+  font-family: 'Fira Code', 'Courier New', Courier, monospace;
+}
+
+/* 4. Perbaiki Tombol dan Link */
+a {
+  color: #3498db;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+a:hover {
+  color: #2980b9;
+}
+
+/* --- PERBAIKAN RESPONSIVITAS (MOBILE) --- */
+@media screen and (max-width: 768px) {
+  /* Kurangi padding agar layar HP tidak terlalu sempit */
+  .post-item, .article-content {
+    padding: 16px;
+    border-radius: 8px;
+  }
+  
+  /* Ukuran font disesuaikan untuk HP */
+  body {
+    font-size: 16px; 
+  }
+
+  h1 { font-size: 1.8rem; }
+  h2 { font-size: 1.5rem; }
+  h3 { font-size: 1.2rem; }
+
+  /* Pastikan gambar dalam postingan tidak keluar batas */
+  img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+  }
+}
