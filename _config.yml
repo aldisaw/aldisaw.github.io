@@ -163,7 +163,7 @@ header_pages:
 defaults:
   home:
     heading: "Halo, Saya Aldisaw"
-    subheading: "Cyber Security Enthusiast | Content Creator"
+    subheading: "Cyber Security Enthusiast 󠁯•󠁏 Content Creator"
     banner: "/assets/images/banners/home.jpg"
 
 # Banner default settings
@@ -175,7 +175,7 @@ banner:
 #   volume: 0               # Video volume (100% is 1.0)
 #   start_at: 0             # Video start time
 #   image: null             # Image banner source
-  opacity: 0.5            # Banner opacity (100% is 1.0)
+  opacity: 0.6            # Banner opacity (100% is 1.0)
 #   background: "rgba(0, 0, 0, 0.8)"  # Banner background (Could be a image)
 #   height: "640px"         # Banner default height
 #   min_height: null        # Banner minimum height
