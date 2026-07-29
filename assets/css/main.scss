@@ -125,23 +125,32 @@ a:hover {
   }
 }
 
-/* Hilangkan area GeoPattern sidebar yang blank */
-.sidebar .geopattern, .site-header .geopattern {
-  display: none !important;
+/* --- UBAH FONT HEADER / BANNER UTAMA AGAR LEBIH KEREN --- */
+/* Import font modern dari Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700;800&display=swap');
+
+/* Terapkan font khusus pada teks judul besar di Header/Banner */
+.site-brand h1, 
+.site-title, 
+.banner h1, 
+.post-header h1 {
+  font-family: 'Plus Jakarta Sans', sans-serif !important;
+  font-weight: 800 !important;
+  letter-spacing: -0.5px;
+  background: linear-gradient(135deg, #ffffff 0%, #cbd5e1 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
-/* Perbaiki tampilan badge postingan agar tidak blank putih */
-.post-badge {
-  background-color: #3498db !important;
-  color: #ffffff !important;
-  padding: 2px 6px;
-  border-radius: 4px;
-  font-size: 0.7rem;
-  font-weight: bold;
-  display: inline-block !important;
+/* Sub-judul di header agar terlihat makin selaras */
+.site-brand p, 
+.banner p, 
+.site-subtitle {
+  font-family: 'Plus Jakarta Sans', sans-serif !important;
+  font-weight: 400;
+  opacity: 0.9;
 }
-/* Jika ingin menyembunyikan badge yang rusak secara total */
-/* .post-badge { display: none !important; } */
 
 /* Perbaiki responsivitas judul artikel di HP */
 @media screen and (max-width: 768px) {
@@ -157,3 +166,46 @@ a:hover {
     max-height: 350px !important;
   }
 }
+
+/* --- 2. MEMBERSIHKAN SIDEBAR BLANK DI MODE DESKTOP --- */
+/* Menghilangkan seluruh kontainer atau elemen geopattern/canvas kosong di sidebar */
+.sidebar .geopattern, 
+.sidebar canvas, 
+.sidebar .sidebar-bg,
+.sidebar-banner {
+  display: none !important;
+  height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Jika kotak putih tersebut adalah elemen widget bawaan yang tidak ada isinya, sembunyikan area kosongnya */
+.sidebar > *:empty {
+  display: none !important;
+}
+
+/* Perbaiki tampilan badge postingan agar tidak blank putih */
+/* --- 1. MEMBEDAKAN WARNA BADGE TOP & NEW --- */
+/* Badge TOP (Warna Oranye/Merah Menyala) */
+.post-badge.badge-top, .post-badge:not(.badge-new) {
+  background-color: #e74c3c !important;
+  color: #ffffff !important;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 0.7rem;
+  font-weight: bold;
+}
+
+/* Badge NEW (Warna Biru Segar atau Hijau) */
+.post-badge.badge-new {
+  background-color: #2ecc71 !important; /* Hijau modern */
+  color: #ffffff !important;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 0.7rem;
+  font-weight: bold;
+}
+/* Jika ingin menyembunyikan badge yang rusak secara total */
+/* .post-badge { display: none !important; } */
+
+
