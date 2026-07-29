@@ -186,24 +186,28 @@ a:hover {
 
 /* Perbaiki tampilan badge postingan agar tidak blank putih */
 /* --- 1. MEMBEDAKAN WARNA BADGE TOP & NEW --- */
-/* Badge TOP (Warna Oranye/Merah Menyala) */
+/* Badge TOP: Warna abu-abu gelap / monokrom mewah (tidak mencolok) */
 .post-badge.badge-top, .post-badge:not(.badge-new) {
-  background-color: #e74c3c !important;
-  color: #ffffff !important;
-  padding: 2px 8px;
+  background-color: #334155 !important; /* Abu-abu kebiruan gelap yang bersih */
+  color: #f1f5f9 !important;
+  padding: 1px 6px;
   border-radius: 4px;
-  font-size: 0.7rem;
-  font-weight: bold;
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
 }
 
-/* Badge NEW (Warna Biru Segar atau Hijau) */
+/* Badge NEW: Warna biru lembut ala tema modern (tidak mencolok) */
 .post-badge.badge-new {
-  background-color: #2ecc71 !important; /* Hijau modern */
-  color: #ffffff !important;
-  padding: 2px 8px;
+  background-color: #e2e8f0 !important; /* Abu-abu terang elegan */
+  color: #0f172a !important;            /* Teks gelap kontras */
+  padding: 1px 6px;
   border-radius: 4px;
-  font-size: 0.7rem;
-  font-weight: bold;
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
 }
 /* Jika ingin menyembunyikan badge yang rusak secara total */
 /* .post-badge { display: none !important; } */
