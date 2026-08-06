@@ -11,6 +11,12 @@
 {%- endif -%}
 
 <header class="site-header {{ header_transparent_class }}" role="banner">
+  <!-- Custom Open Graph / Facebook / LinkedIn / WhatsApp -->
+  <meta property="og:type" content="{% if page.layout == 'post' %}article{% else %}website{% endif %}">
+  <meta property="og:url" content="{{ site.url }}{{ page.url }}"> 
+  <meta property="og:title" content="{% if page.title %}{{ page.title }} | {{ site.author }}{% else %}{{ site.title }}{% endif %}">
+  <meta property="og:description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
+  <meta property="og:image" content="{% if page.image %}{{ site.url }}{{ page.image }}{% else %}{{ site.url }}/assets/images/foto-utama-aldisaw.jpg{% endif %}">
 
   <div class="wrapper">
     <div class="site-header-inner">
