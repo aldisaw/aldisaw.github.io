@@ -25,7 +25,7 @@
 # in the templates via {{ site.myvariable }}.
 
 title: Aldisaw
-email: aldisawah@gmail.com
+email: hello@aldisaw.id
 author: Aldisaw
 
 # Copyright setting
@@ -42,8 +42,11 @@ author: Aldisaw
 #
 copyright: "(cleft) {currentYear} {author}"
 
-description: >- # this means to ignore newlines until "baseurl:"
-  Aldisaw's Personal Blog | Catatan personal Aldisaw seputar teknologi, keamanan siber, dan riset IT.
+description: >-
+  Aldisaw's personal blog. A digital space where I share my travel adventures, daily thoughts, hobbies, and technical notes on cybersecurity, AI, and information technology.
+
+# SEO Keywords (Sangat penting untuk mesin pencari)
+keywords: "aldisaw, personal blog, travel stories, anime reviews, cybersecurity, android pentest, artificial intelligence, tech blog, lifestyle"
 
 baseurl: "/" # the subpath of your site, e.g. /blog
 url: "https://aldisaw.id/" # the base hostname & protocol for your site, e.g. https://example.com
