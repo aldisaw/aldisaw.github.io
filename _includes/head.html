@@ -23,4 +23,47 @@
   <meta property="og:title" content="{% if page.title %}{{ page.title }} | {{ site.author }}{% else %}{{ site.title }}{% endif %}">
   <meta property="og:description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
   <meta property="og:image" content="{% if page.image %}{{ site.url }}{{ page.image }}{% else %}{{ site.url }}/assets/images/foto-utama-aldisaw.jpg{% endif %}">
+
+  <!-- Schema.org Markup for Google (Structured Data) -->
+   <script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@graph":[
+    {
+      "@type":"Person",
+      "@id":"{{ site.url }}/#person",
+      "name": "Aldi Saputra Wahyudi",
+      "alternateName": "aldisaw"
+      "url":"{{ site.url }}/",
+      "image":"{{ site.url }}/assets/images/banners/home.jpg",
+      "jobTitle":"Cybersecurity & IT Researcher",
+      "description":"Cybersecurity researcher focusing on mobile, web, and cloud security.",
+      "sameAs":[
+        "https://github.com/aldisaw",
+        "https://www.linkedin.com/in/aldisaw",
+        "https://instagram.com/aldisaw"
+      ],
+      "knowsAbout":[
+        "Mobile Application Security",
+        "Web Application Security",
+        "API Security",
+        "Cloud Security",
+        "Bug Bounty",
+        "Security Consultant",
+        "Artificial Intelligence"
+      ]
+    },
+    {
+      "@type":"WebSite",
+      "@id":"{{ site.url }}/#website",
+      "url":"{{ site.url }}/",
+      "name":"Aldisaw",
+      "publisher":{
+        "@id":"{{ site.url }}/#person"
+      },
+      "inLanguage":"en"
+    }
+  ]
+}
+</script>
 </head>
