@@ -26,7 +26,7 @@ Gaya penulisan dan slide yang saya bawakan kali ini cukup terinspirasi dari slid
 
 Lanjut fokus ke materi.
 
-Saya membawakan materi tentang bagaimana **POV seorang hacker ketika ingin mengeksploitasi seseorang**, tentunya dengan bahasa yang mudah dimengerti dan diselingi sedikit bercandaan dari pengalaman saya yang pernah ikut stand up comedy juga hehe.
+Saya membawakan materi tentang bagaimana POV seorang hacker ketika ingin mengeksploitasi seseorang, tentunya dengan bahasa yang mudah dimengerti dan diselingi sedikit bercandaan dari pengalaman saya yang pernah ikut stand up comedy juga hehe.
 
 Materi dimulai dari pertanyaan sederhana:
 
@@ -36,7 +36,7 @@ Jawabannya adalah **information gathering**.
 
 Saya menjelaskan bagaimana oversharing di media sosial dapat dimanfaatkan oleh hacker. Bahkan sesuatu yang menurut kita bukan oversharing, atau sekadar sharing hal kecil yang menurut kita tidak penting, bisa menjadi informasi yang cukup berharga di mata seorang hacker.
 
-Contohnya adalah **Instagram Story**.
+Contohnya adalah Instagram Story.
 
 Dari sebuah story sederhana, seseorang terkadang bisa mendapatkan informasi mengenai lokasi, kebiasaan, aktivitas, orang-orang terdekat, bahkan pola kehidupan seseorang.
 
@@ -48,7 +48,7 @@ Di sinilah saya masuk ke materi **OSINT (Open Source Intelligence)**.
 
 Saya menjelaskan bahwa mengunci profile media sosial bukan berarti seluruh informasi tentang seseorang otomatis menjadi tidak tersedia. Dengan informasi yang sangat sedikit sekalipun, masih mungkin ditemukan informasi lain melalui teknik OSINT dan korelasi data dari berbagai sumber.
 
-Selanjutnya saya masuk ke materi **cyber awareness** yang mungkin sudah cukup umum, yaitu mengenai **common password** dan kebiasaan menggunakan password yang sama untuk banyak akun.
+Selanjutnya saya masuk ke materi cyber awareness yang mungkin sudah cukup umum, yaitu mengenai _common password_ dan kebiasaan menggunakan password yang sama untuk banyak akun.
 
 Kalau sudah sering mengikuti seminar cybersecurity, mungkin bagian ini sudah sering didengar. Tapi tetap saja, masih banyak orang yang melakukan hal tersebut. Jadi ya... mau tidak mau tetap harus dibahas. 😄
 
@@ -62,7 +62,7 @@ Saya kemudian membahas dokumenter **The Great Hack**, serta mencoba membuat peru
 
 ## Indonesia and Cybersecurity: Doing Fine or Totally Cooked?
 
-Di bagian ini saya membahas bagaimana data Indonesia dapat dikirim dan diproses di luar negeri, termasuk ke US, kasus **Pusdatin yang kebobolan**, fenomena penjualan data di forum underground oleh **Bjorka**, dan beberapa case yang pernah saya tangani sendiri.
+Di bagian ini saya membahas bagaimana data Indonesia dikirim dan diproses di luar negeri termasuk ke US, kasus Pusdatin yang kebobolan, fenomena penjualan data di forum underground oleh _Bjorka_, dan beberapa case yang pernah saya tangani sendiri.
 
 Tujuannya bukan untuk membuat mahasiswa menjadi paranoid terhadap teknologi, tetapi justru agar mereka memahami bahwa setiap informasi yang kita bagikan di internet memiliki nilai dan potensi risiko.
 
