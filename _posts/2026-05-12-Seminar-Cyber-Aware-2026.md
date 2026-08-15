@@ -4,7 +4,7 @@ title: Seminar Cyber Aware 2026 | Beyond Breach, Strategi Cerdas Menghadapi Anca
 author: Aldi
 categories: security
 banner:
-  image: https://github.com/user-attachments/assets/43d60d22-5877-4df9-9d3d-4a55f5afca4c
+  image: https://github.com/user-attachments/assets/2413c6c3-adc4-4593-a44d-586491487e48
   opacity: 0.618
   background: "#000"
   height: "100vh"
