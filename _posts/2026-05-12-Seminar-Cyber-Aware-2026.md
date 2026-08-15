@@ -4,7 +4,7 @@ title: Seminar Cyber Aware 2026 | Beyond Breach, Strategi Cerdas Menghadapi Anca
 author: Aldi
 categories: security
 banner:
-  image: https://github.com/user-attachments/assets/98415669-ee19-405f-95c2-d6000a550bb9
+  image: https://github.com/user-attachments/assets/43d60d22-5877-4df9-9d3d-4a55f5afca4c
   opacity: 0.618
   background: "#000"
   height: "100vh"
@@ -20,9 +20,10 @@ Kemarin saya baru saja diundang oleh Teknik Informatika Universitas Pasundan seb
 
 Bisa dibilang ini menjadi momen yang cukup berkesan bagi saya. Mengingat dulu ketika masih kuliah, saya pernah terpaku dengan presentasi **Raditya Iryandi** saat beliau datang ke kampus saya. Dua tahun setelahnya, tepatnya pada tahun 2018, beliau justru menjadi mentor saya di **Born to Protect Challenge**.
 
-Karena itu, gaya penulisan dan slide yang saya bawakan kali ini cukup terinspirasi dari slide presentasi beliau sekitar 10 tahun lalu. Menurut saya, slide tersebut keren karena sederhana, ringkas, tetapi tetap bisa menyampaikan pesan dengan jelas.
+Gaya penulisan dan slide yang saya bawakan kali ini cukup terinspirasi dari slide presentasi beliau sekitar 10 tahun lalu. Menurut saya, slide tersebut keren karena sederhana, ringkas, tetapi tetap bisa menyampaikan pesan dengan jelas.
 
 ## Materi
+![Seminar Cyber Aware 2026](https://github.com/user-attachments/assets/b36b5023-df6a-49dd-abf3-da93a215c5a4)
 
 Lanjut fokus ke materi.
 
