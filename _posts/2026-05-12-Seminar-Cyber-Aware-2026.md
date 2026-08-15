@@ -22,7 +22,6 @@ Bisa dibilang ini menjadi momen yang cukup berkesan bagi saya. Mengingat dulu ke
 
 Gaya penulisan dan slide yang saya bawakan kali ini cukup terinspirasi dari slide presentasi beliau sekitar 10 tahun lalu. Menurut saya, slide tersebut keren karena sederhana, ringkas, tetapi tetap bisa menyampaikan pesan dengan jelas.
 
-## Materi
 ![Seminar Cyber Aware 2026](https://github.com/user-attachments/assets/b36b5023-df6a-49dd-abf3-da93a215c5a4)
 
 Lanjut fokus ke materi.
@@ -84,3 +83,5 @@ Menurut saya, quote tersebut sangat relevan dengan kondisi kita sekarang.
 Kita merasa sedang menggunakan teknologi.
 
 Padahal, di saat yang sama, teknologi juga sedang belajar tentang **kita**.
+
+![](https://github.com/user-attachments/assets/9d03f24f-22a1-4e13-b08f-ced337dd0e74)
