@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 580" width="1080" height="580" font-family="Inter, Segoe UI, system-ui, sans-serif">
+  <defs>
+    <marker id="tarr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#38bdf8"/>
+    </marker>
+    <marker id="tarr-g" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#10b981"/>
+    </marker>
+    <marker id="tarr-p" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#c084fc"/>
+    </marker>
+  </defs>
+
+  <rect width="1080" height="580" rx="14" fill="#0d1117"/>
+  <rect x="16" y="16" width="1048" height="548" rx="10" fill="none" stroke="#30363d" stroke-width="1.5"/>
+
+  <text x="40" y="54" fill="#f0f6fc" font-size="21" font-weight="700">Two-Tier Multithreading &amp; Synchronization Architecture</text>
+  <text x="40" y="76" fill="#8b949e" font-size="12.5">8 OS Processes (1 CLICK Controller + 7 mitmdump Proxies) • Up to 45 Concurrent Threads System-Wide</text>
+
+  <!-- Left Container: click.py -->
+  <rect x="40" y="102" width="520" height="436" rx="10" fill="#11161d" stroke="#10b981" stroke-width="1.5"/>
+  <text x="58" y="128" fill="#10b981" font-size="14" font-weight="700">Process 1: CLICK Controller (click.py — 10 Threads)</text>
+
+  <rect x="60" y="146" width="480" height="64" rx="8" fill="#161b22" stroke="#38bdf8" stroke-width="1.3"/>
+  <text x="76" y="170" fill="#38bdf8" font-size="12.5" font-weight="700">Main Thread (__main__)</text>
+  <text x="76" y="190" fill="#c9d1d9" font-size="11">VPN check → load id.txt → start threads → join() → merge_results()</text>
+
+  <rect x="60" y="232" width="230" height="72" rx="8" fill="#161b22" stroke="#f59e0b" stroke-width="1.3"/>
+  <text x="76" y="256" fill="#f59e0b" font-size="12" font-weight="700">pause_listener (Daemon)</text>
+  <text x="76" y="275" fill="#c9d1d9" font-size="11">msvcrt.kbhit() non-blocking</text>
+  <text x="76" y="291" fill="#8b949e" font-size="10.5">Toggles resume_event on ENTER</text>
+
+  <rect x="310" y="232" width="230" height="72" rx="8" fill="#161b22" stroke="#38bdf8" stroke-width="1.3"/>
+  <text x="326" y="256" fill="#38bdf8" font-size="12" font-weight="700">table_updater (1 Thread)</text>
+  <text x="326" y="275" fill="#c9d1d9" font-size="11">1s loop: cls + progress table</text>
+  <text x="326" y="291" fill="#8b949e" font-size="10.5">Exits when done_count == total</text>
+
+  <rect x="60" y="328" width="480" height="76" rx="8" fill="#161b22" stroke="#10b981" stroke-width="1.5"/>
+  <text x="76" y="352" fill="#10b981" font-size="12.5" font-weight="700">7x Emulator Worker Threads (process_emulator)</text>
+  <text x="76" y="372" fill="#c9d1d9" font-size="11">emulator-5556 • 5558 • 5560 • 5562 • 5564 • 5566 • 5568</text>
+  <text x="76" y="390" fill="#8b949e" font-size="10.5">wait(resume_event) → get_next_id() → ADB → poll mtime → increment_done</text>
+
+  <rect x="60" y="428" width="480" height="90" rx="8" fill="#1c1917" stroke="#f59e0b" stroke-width="1.3"/>
+  <text x="76" y="452" fill="#f59e0b" font-size="12.5" font-weight="700">Shared State &amp; Synchronization Primitives</text>
+  <text x="76" y="472" fill="#e7e5e4" font-size="11">• lock (threading.Lock): guards index, done_count, emulator_status, cls</text>
+  <text x="76" y="490" fill="#e7e5e4" font-size="11">• resume_event (threading.Event): graceful between-ID pause barrier</text>
+  <text x="76" y="507" fill="#fca5a5" font-size="10.5">⚠ Note: switch_vpn() holds lock across 60s sleep every 200 IDs</text>
+
+  <!-- Right Container: 7x mitmdump -->
+  <rect x="600" y="102" width="440" height="436" rx="10" fill="#11161d" stroke="#a855f7" stroke-width="1.5"/>
+  <text x="618" y="128" fill="#c084fc" font-size="14" font-weight="700">Processes 2–8: 7x mitmdump (-s mitm.py)</text>
+
+  <rect x="620" y="146" width="400" height="72" rx="8" fill="#161b22" stroke="#a855f7" stroke-width="1.3"/>
+  <text x="636" y="170" fill="#c084fc" font-size="12.5" font-weight="700">mitmproxy Event Loop (1 per Process)</text>
+  <text x="636" y="190" fill="#c9d1d9" font-size="11">InterceptAddon.request() bound to INSTANCE_ID</text>
+  <text x="636" y="206" fill="#8b949e" font-size="10.5">Spawns &amp; joins 5 worker threads synchronously</text>
+
+  <rect x="620" y="242" width="400" height="86" rx="8" fill="#161b22" stroke="#38bdf8" stroke-width="1.3"/>
+  <text x="636" y="266" fill="#38bdf8" font-size="12.5" font-weight="700">5x Challenge Worker Threads (per Instance)</text>
+  <text x="636" y="286" fill="#c9d1d9" font-size="11">Thread 1 • Thread 2 • Thread 3 • Thread 4 • Thread 5</text>
+  <text x="636" y="304" fill="#8b949e" font-size="10.5">Concurrent research loop → first-win guard (found=True)</text>
+  <text x="636" y="319" fill="#8b949e" font-size="10.5">Total across 7 proxies: up to 35 concurrent workers</text>
+
+  <rect x="620" y="352" width="400" height="74" rx="8" fill="#161b22" stroke="#10b981" stroke-width="1.3"/>
+  <text x="636" y="376" fill="#10b981" font-size="12.5" font-weight="700">Process-Local Lock &amp; Result Writer</text>
+  <text x="636" y="396" fill="#c9d1d9" font-size="11">Appends berhasil_&lt;INSTANCE_ID&gt;.txt / gagal_&lt;id&gt;.txt</text>
+  <text x="636" y="413" fill="#8b949e" font-size="10.5">Updates file mtime → wakes click.py polling loop</text>
+
+  <rect x="620" y="446" width="400" height="72" rx="8" fill="#1c1917" stroke="#ef4444" stroke-width="1.3"/>
+  <text x="636" y="470" fill="#f87171" font-size="12" font-weight="700">⚠ Discovered Concurrency Hazard</text>
+  <text x="636" y="489" fill="#e7e5e4" font-size="11">All 7 processes share one CWD for capimg_*.png</text>
+  <text x="636" y="505" fill="#fca5a5" font-size="10.5">os.remove() cleanup race leaves orphaned PNGs</text>
+
+  <!-- Cross-process arrows -->
+  <line x1="540" y1="366" x2="616" y2="182" stroke="#38bdf8" stroke-width="1.8" stroke-dasharray="5,3" marker-end="url(#tarr)"/>
+  <line x1="620" y1="389" x2="544" y2="389" stroke="#10b981" stroke-width="1.8" marker-end="url(#tarr-g)"/>
+</svg>

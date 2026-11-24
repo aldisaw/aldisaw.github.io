@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 440" width="860" height="440" font-family="JetBrains Mono, Consolas, monospace">
+  <rect width="860" height="440" rx="12" fill="#0d1117" stroke="#30363d" stroke-width="1.5"/>
+  <rect x="1" y="1" width="858" height="34" rx="11" fill="#161b22"/>
+  <circle cx="22" cy="18" r="5.5" fill="#ef4444"/>
+  <circle cx="40" cy="18" r="5.5" fill="#f59e0b"/>
+  <circle cx="58" cy="18" r="5.5" fill="#10b981"/>
+  <text x="430" y="22" fill="#8b949e" font-size="12" text-anchor="middle">CLICK — Synthetic Execution Log Sample (Sanitized)</text>
+
+  <g font-size="12.5" fill="#c9d1d9">
+    <text x="26" y="64" fill="#38bdf8">[VPN-SIM] Terdeteksi sudah terhubung ke: Region-A. Lewati connect awal.</text>
+    <text x="26" y="86" fill="#10b981">[###] Total ID yang akan diproses: 10 (synthetic demo)</text>
+
+    <text x="26" y="122" fill="#f0f6fc" font-weight="700">=== Live Progress (SIMULATION) ===</text>
+    <text x="26" y="146" fill="#e6edf3">Total ID: 10   Done: 7/10</text>
+
+    <text x="26" y="176" fill="#8b949e">Emulator         Current ID            Done</text>
+    <text x="26" y="192" fill="#30363d">---------------------------------------------</text>
+    <text x="26" y="212" fill="#d1fae5">emulator-5556    100000008             1</text>
+    <text x="26" y="232" fill="#d1fae5">emulator-5558    100000009             1</text>
+    <text x="26" y="252" fill="#d1fae5">emulator-5560    100000010             1</text>
+    <text x="26" y="272" fill="#94a3b8">emulator-5562    -                     1</text>
+    <text x="26" y="292" fill="#94a3b8">emulator-5564    -                     1</text>
+    <text x="26" y="312" fill="#94a3b8">emulator-5566    -                     1</text>
+    <text x="26" y="332" fill="#94a3b8">emulator-5568    -                     1</text>
+
+    <text x="26" y="366" fill="#38bdf8">Tekan ENTER untuk Pause/Resume</text>
+    <text x="26" y="396" fill="#10b981">[###] File berhasil_all.txt dan gagal_all.txt sudah dibuat.</text>
+    <text x="26" y="416" fill="#10b981">[###] Semua ID selesai diproses.</text>
+  </g>
+</svg>

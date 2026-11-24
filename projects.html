@@ -3,8 +3,8 @@ layout: about
 title: Projects
 permalink: /projects/
 eyebrow: "Engineering & Tools"
-subtitle: "Automation systems and engineering tools I have built and am preparing to document publicly."
-description: "Technical projects by Aldi Saputra Wahyudi (Aldisaw), featuring the Python Application Automation Toolkit."
+subtitle: "Real-world application security engineering, mobile reverse engineering, and multi-instance automation projects."
+description: "Technical projects by Aldi Saputra Wahyudi (Aldisaw), featuring Android Application Security Engineering."
 ---
 
 {%- assign toolkit = site.data.projects | first -%}
@@ -20,14 +20,14 @@ description: "Technical projects by Aldi Saputra Wahyudi (Aldisaw), featuring th
     {{ toolkit.summary }}
   </p>
 
-  <h3 style="font-size: 1.15rem; margin-bottom: 0.85rem;">Technical Areas</h3>
+  <h3 style="font-size: 1.15rem; margin-bottom: 0.85rem;">Technical Highlights</h3>
   <div class="card-tags" style="margin-bottom: 2rem;">
     {%- for area in toolkit.technical_areas -%}
       <span class="tag-pill">{{ area }}</span>
     {%- endfor -%}
   </div>
 
-  <h3 style="font-size: 1.15rem; margin-bottom: 1rem;">Core Capabilities</h3>
+  <h3 style="font-size: 1.15rem; margin-bottom: 1rem;">Primary Highlights</h3>
   <div class="grid-3" style="margin-bottom: 2rem;">
     {%- for cap in toolkit.capabilities -%}
     <div style="padding: 1.15rem; border: 1px solid var(--border); border-radius: var(--radius-sm); background: var(--bg-primary);">
@@ -41,10 +41,15 @@ description: "Technical projects by Aldi Saputra Wahyudi (Aldisaw), featuring th
     {%- endfor -%}
   </div>
 
+  <div class="cta-actions" style="margin-bottom: 1.75rem;">
+    <a class="btn btn-primary" href="{{ toolkit.github_url }}" target="_blank" rel="noopener noreferrer">GitHub Repository</a>
+    <a class="btn btn-secondary" href="{{ toolkit.article_url }}">Read Research Article</a>
+  </div>
+
   <div style="padding: 1rem 1.25rem; border-left: 3px solid var(--accent); background: var(--bg-subtle); border-radius: 0 var(--radius-sm) var(--radius-sm) 0;">
     <p style="font-size: 0.9rem; margin: 0;">
-      <strong style="color: var(--text-primary);">{{ toolkit.status_note | default: "Documentation Coming Soon" }}:</strong>
-      Public repository modules, architectural diagrams, and technical write-ups are currently being prepared. Sensitive operational details and private configurations are intentionally excluded.
+      <strong style="color: var(--text-primary);">{{ toolkit.status_note | default: "Sanitized Public Release" }}:</strong>
+      The public GitHub repository and technical article document the architecture, security research findings, and sanitized reference components. Operational CAPTCHA bypass code, credentials, real account data, and private configurations are intentionally excluded.
     </p>
   </div>
 </article>
