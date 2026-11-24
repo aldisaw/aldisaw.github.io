@@ -8,6 +8,7 @@ description: "Read articles by Aldi Saputra Wahyudi (Aldisaw) covering cybersecu
 ---
 
 {%- assign date_format = site.yat.date_format | default: "%b %d, %Y" -%}
+{%- assign primary_posts = site.posts | where_exp: "post", "post.is_translation != true" -%}
 
 <div class="blog-controls" aria-label="Blog search and filters">
   <div class="blog-controls-row">
@@ -29,7 +30,7 @@ description: "Read articles by Aldi Saputra Wahyudi (Aldisaw) covering cybersecu
     </form>
 
     <div class="blog-results-meta" id="blog-results-count">
-      {{ site.posts.size }} {% if site.posts.size == 1 %}article{% else %}articles{% endif %}
+      {{ primary_posts.size }} {% if primary_posts.size == 1 %}article{% else %}articles{% endif %}
     </div>
   </div>
 
@@ -38,12 +39,15 @@ description: "Read articles by Aldi Saputra Wahyudi (Aldisaw) covering cybersecu
       <button type="button" class="filter-pill is-active" data-filter-category="all" aria-pressed="true">All</button>
       {%- for category in site.categories -%}
         {%- assign cat_name = category[0] -%}
+        {%- assign cat_primary = category[1] | where_exp: "post", "post.is_translation != true" -%}
+        {%- if cat_primary.size > 0 -%}
         <button type="button"
                 class="filter-pill"
                 data-filter-category="{{ cat_name | downcase | escape }}"
                 aria-pressed="false">
-          {{ cat_name | capitalize }} ({{ category[1].size }})
+          {{ cat_name | capitalize }} ({{ cat_primary.size }})
         </button>
+        {%- endif -%}
       {%- endfor -%}
     </div>
 
@@ -56,17 +60,27 @@ description: "Read articles by Aldi Saputra Wahyudi (Aldisaw) covering cybersecu
 </div>
 
 <div class="grid-2" id="blog-posts-grid">
-  {%- for post in site.posts -%}
+  {%- for post in primary_posts -%}
     {%- assign words = post.content | strip_html | number_of_words -%}
     {%- assign reading_time = words | divided_by: 200 | plus: 1 -%}
     {%- assign thumb = post.image | default: post.banner.image | default: '/assets/images/default-image.jpeg' -%}
     {%- assign primary_cat = post.categories | first | default: 'general' -%}
+    {%- assign alt_post = nil -%}
+    {%- if post.translation_id -%}
+      {%- assign pair = site.posts | where: "translation_id", post.translation_id -%}
+      {%- for candidate in pair -%}
+        {%- if candidate.url != post.url -%}
+          {%- assign alt_post = candidate -%}
+          {%- break -%}
+        {%- endif -%}
+      {%- endfor -%}
+    {%- endif -%}
     <article class="post-card"
              data-post-card
              data-category="{{ primary_cat | downcase | escape }}"
              data-categories="{{ post.categories | join: ' ' | downcase | escape }}"
-             data-tags="{{ post.tags | join: ' ' | downcase | escape }}"
-             data-search="{{ post.title | downcase | escape }} {{ post.description | default: post.excerpt | strip_html | strip_newlines | downcase | escape }} {{ post.content | strip_html | strip_newlines | downcase | escape }}">
+             data-tags="{{ post.tags | join: ' ' | downcase | escape }}{% if alt_post %} {{ alt_post.tags | join: ' ' | downcase | escape }}{% endif %}"
+             data-search="{{ post.title | downcase | escape }} {{ post.description | default: post.excerpt | strip_html | strip_newlines | downcase | escape }} {{ post.content | strip_html | strip_newlines | downcase | escape }}{% if alt_post %} {{ alt_post.title | downcase | escape }} {{ alt_post.description | default: alt_post.excerpt | strip_html | strip_newlines | downcase | escape }}{% endif %}">
       <a class="post-card-thumb" href="{{ post.url | relative_url }}" aria-hidden="true" tabindex="-1">
         <img src="{{ thumb | relative_url }}" alt="" loading="lazy" width="640" height="360">
       </a>
@@ -76,6 +90,9 @@ description: "Read articles by Aldi Saputra Wahyudi (Aldisaw) covering cybersecu
           <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: date_format }}</time>
           <span>&middot;</span>
           <span>{{ reading_time }} min read</span>
+          {%- if alt_post -%}
+            <span class="lang-badge" title="Available in English and Indonesian">EN &middot; ID</span>
+          {%- endif -%}
         </div>
         <h2 class="post-card-title">
           <a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>

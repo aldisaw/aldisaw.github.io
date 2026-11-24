@@ -7,6 +7,9 @@ tags: [security, automation, android, python, mitmproxy, captcha, appsec]
 author: Aldi Saputra Wahyudi
 description: "Catatan engineering membangun environment riset keamanan aplikasi Android dengan 7 emulator, 7 proses mitmdump, Python multithreading, terminal kontrol CLICK, serta hasil riset keamanan slider CAPTCHA."
 image: /assets/images/posts/cover-concept.png
+lang: id
+locale: id_ID
+translation_id: android-automation-7-emulator-python
 ---
 
 > **Catatan Ruang Lingkup:** Artikel ini mencatat arsitektur *engineering* dan temuan riset keamanan dari *environment* Application Security & Automation yang saya bangun untuk riset internal yang terotorisasi. Seluruh domain produksi, kredensial, data akun asli, gambar tantangan CAPTCHA asli, serta skrip *bypass* operasional tetap disimpan secara privat. Semua angka yang dikutip dari berkas log dan gambar di bawah merujuk pada **sampel bukti eksekusi** (*sample evidence*) dari satu cuplikan sesi.

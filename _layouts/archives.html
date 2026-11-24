@@ -2,6 +2,7 @@
 layout: default
 ---
 {%- assign date_format = site.yat.date_format | default: "%b %d, %Y" -%}
+{%- assign primary_posts = site.posts | where_exp: "post", "post.is_translation != true" -%}
 <header class="page-header">
   <div class="container">
     <div class="eyebrow">Timeline</div>
@@ -12,15 +13,30 @@ layout: default
 
 <div class="page-body">
   <div class="container container-narrow">
-    {%- assign postsByYear = site.posts | group_by_exp: "post", "post.date | date: '%Y'" -%}
+    {%- assign postsByYear = primary_posts | group_by_exp: "post", "post.date | date: '%Y'" -%}
     {%- for year in postsByYear -%}
       <section class="archive-group" id="year-{{ year.name }}">
         <h2 class="archive-group-title">{{ year.name }} ({{ year.items.size }})</h2>
         <ul class="archive-list">
           {%- for post in year.items -%}
+            {%- assign alt_post = nil -%}
+            {%- if post.translation_id -%}
+              {%- assign pair = site.posts | where: "translation_id", post.translation_id -%}
+              {%- for candidate in pair -%}
+                {%- if candidate.url != post.url -%}
+                  {%- assign alt_post = candidate -%}
+                  {%- break -%}
+                {%- endif -%}
+              {%- endfor -%}
+            {%- endif -%}
           <li>
             <span class="archive-date">{{ post.date | date: date_format }}</span>
-            <a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
+            <span>
+              <a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
+              {%- if alt_post -%}
+                <a class="archive-lang-link" href="{{ alt_post.url | relative_url }}" hreflang="{{ alt_post.lang | default: 'en' }}">{{ alt_post.lang | default: 'en' | upcase }}</a>
+              {%- endif -%}
+            </span>
           </li>
           {%- endfor -%}
         </ul>

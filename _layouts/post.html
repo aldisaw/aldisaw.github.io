@@ -5,6 +5,8 @@ layout: default
 {%- assign words = page.content | strip_html | number_of_words -%}
 {%- assign reading_time = words | divided_by: 200 | plus: 1 -%}
 {%- assign hero_image = page.image | default: page.banner.image -%}
+{%- assign current_lang = page.lang | default: site.lang | default: "en" -%}
+{%- assign primary_posts = site.posts | where_exp: "p", "p.is_translation != true" -%}
 
 <article class="post-article" itemscope itemtype="https://schema.org/BlogPosting">
   <header class="article-header">
@@ -20,13 +22,17 @@ layout: default
         {%- endif -%}
       </nav>
 
-      {%- if page.categories.size > 0 -%}
-      <div style="margin-bottom: 0.75rem;">
-        {%- for cat in page.categories -%}
-          <a class="cat-pill" href="{{ '/blog/' | relative_url }}?category={{ cat | url_encode }}">{{ cat }}</a>
-        {%- endfor -%}
+      <div class="article-top-bar">
+        {%- if page.categories.size > 0 -%}
+        <div class="article-categories">
+          {%- for cat in page.categories -%}
+            <a class="cat-pill" href="{{ '/blog/' | relative_url }}?category={{ cat | url_encode }}">{{ cat }}</a>
+          {%- endfor -%}
+        </div>
+        {%- endif -%}
+
+        {%- include views/lang-switcher.html -%}
       </div>
-      {%- endif -%}
 
       <h1 class="article-title" itemprop="headline">{{ page.title | escape }}</h1>
 
@@ -72,21 +78,53 @@ layout: default
       </div>
       {%- endif -%}
 
-      {%- if page.previous or page.next -%}
+      {%- assign current_idx = -1 -%}
+      {%- for p in primary_posts -%}
+        {%- if p.url == page.url -%}
+          {%- assign current_idx = forloop.index0 -%}
+          {%- break -%}
+        {%- elsif page.translation_id and p.translation_id == page.translation_id -%}
+          {%- assign current_idx = forloop.index0 -%}
+          {%- break -%}
+        {%- endif -%}
+      {%- endfor -%}
+
+      {%- assign nav_prev = nil -%}
+      {%- assign nav_next = nil -%}
+      {%- if current_idx >= 0 -%}
+        {%- assign older_idx = current_idx | plus: 1 -%}
+        {%- assign newer_idx = current_idx | minus: 1 -%}
+        {%- if older_idx < primary_posts.size -%}
+          {%- assign nav_prev = primary_posts[older_idx] -%}
+          {%- if nav_prev.translation_id -%}
+            {%- assign prev_lang_match = site.posts | where: "translation_id", nav_prev.translation_id | where: "lang", current_lang | first -%}
+            {%- if prev_lang_match -%}{%- assign nav_prev = prev_lang_match -%}{%- endif -%}
+          {%- endif -%}
+        {%- endif -%}
+        {%- if newer_idx >= 0 -%}
+          {%- assign nav_next = primary_posts[newer_idx] -%}
+          {%- if nav_next.translation_id -%}
+            {%- assign next_lang_match = site.posts | where: "translation_id", nav_next.translation_id | where: "lang", current_lang | first -%}
+            {%- if next_lang_match -%}{%- assign nav_next = next_lang_match -%}{%- endif -%}
+          {%- endif -%}
+        {%- endif -%}
+      {%- endif -%}
+
+      {%- if nav_prev or nav_next -%}
       <nav class="post-nav" aria-label="Article navigation">
-        {%- if page.previous -%}
-          <a class="post-nav-item" href="{{ page.previous.url | relative_url }}">
+        {%- if nav_prev -%}
+          <a class="post-nav-item" href="{{ nav_prev.url | relative_url }}">
             <span class="post-nav-label">&larr; Previous Article</span>
-            <span class="post-nav-title">{{ page.previous.title | escape }}</span>
+            <span class="post-nav-title">{{ nav_prev.title | escape }}</span>
           </a>
         {%- else -%}
           <div></div>
         {%- endif -%}
 
-        {%- if page.next -%}
-          <a class="post-nav-item post-nav-next" href="{{ page.next.url | relative_url }}">
+        {%- if nav_next -%}
+          <a class="post-nav-item post-nav-next" href="{{ nav_next.url | relative_url }}">
             <span class="post-nav-label">Next Article &rarr;</span>
-            <span class="post-nav-title">{{ page.next.title | escape }}</span>
+            <span class="post-nav-title">{{ nav_next.title | escape }}</span>
           </a>
         {%- endif -%}
       </nav>
@@ -94,20 +132,33 @@ layout: default
 
       {%- assign related_count = 0 -%}
       {%- capture related_html -%}
-        {%- for post in site.posts -%}
-          {%- if post.url != page.url and related_count < 2 -%}
-            {%- assign related_count = related_count | plus: 1 -%}
-            <article class="card card-interactive">
-              <div class="card-meta">
-                {%- if post.categories.size > 0 -%}
-                  <span class="cat-pill">{{ post.categories | first }}</span>
-                {%- endif -%}
-                <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: date_format }}</time>
-              </div>
-              <h3 class="card-title"><a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a></h3>
-              <p class="card-desc">{{ post.description | default: post.excerpt | strip_html | strip_newlines | truncate: 110 }}</p>
-            </article>
+        {%- for candidate in primary_posts -%}
+          {%- assign is_same_article = false -%}
+          {%- if candidate.url == page.url -%}
+            {%- assign is_same_article = true -%}
+          {%- elsif page.translation_id and candidate.translation_id == page.translation_id -%}
+            {%- assign is_same_article = true -%}
           {%- endif -%}
+          {%- unless is_same_article -%}
+            {%- if related_count < 2 -%}
+              {%- assign post = candidate -%}
+              {%- if candidate.translation_id -%}
+                {%- assign rel_lang_match = site.posts | where: "translation_id", candidate.translation_id | where: "lang", current_lang | first -%}
+                {%- if rel_lang_match -%}{%- assign post = rel_lang_match -%}{%- endif -%}
+              {%- endif -%}
+              {%- assign related_count = related_count | plus: 1 -%}
+              <article class="card card-interactive">
+                <div class="card-meta">
+                  {%- if post.categories.size > 0 -%}
+                    <span class="cat-pill">{{ post.categories | first }}</span>
+                  {%- endif -%}
+                  <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: date_format }}</time>
+                </div>
+                <h3 class="card-title"><a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a></h3>
+                <p class="card-desc">{{ post.description | default: post.excerpt | strip_html | strip_newlines | truncate: 110 }}</p>
+              </article>
+            {%- endif -%}
+          {%- endunless -%}
         {%- endfor -%}
       {%- endcapture -%}
 

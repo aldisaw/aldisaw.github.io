@@ -75,6 +75,7 @@
         "@id": "{{ canonical_url }}"
       },
       "headline": {{ page.title | jsonify }},
+      "inLanguage": "{{ page.lang | default: site.lang | default: 'en' }}",
       "description": {{ page.description | default: page.excerpt | strip_html | strip_newlines | truncate: 160 | jsonify }},
       "image": {{ og_image | jsonify }},
       "datePublished": "{{ page.date | date_to_xmlschema }}",

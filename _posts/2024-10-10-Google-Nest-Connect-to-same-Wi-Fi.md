@@ -7,6 +7,9 @@ categories: tutorial
 banner:
   image: https://github.com/user-attachments/assets/846533c6-b510-4818-a1f5-cb67833be52d
 tags: [tutorial, Smart Home, Google Nest, Networking]
+lang: id
+locale: id_ID
+translation_id: google-nest-ap-isolation
 top: 1
 ---
 

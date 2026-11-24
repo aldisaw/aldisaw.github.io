@@ -1,0 +1,21 @@
+{%- if page.translation_id -%}
+  {%- assign paired_posts = site.posts | where: "translation_id", page.translation_id -%}
+  {%- assign en_post = paired_posts | where: "lang", "en" | first -%}
+  {%- assign id_post = paired_posts | where: "lang", "id" | first -%}
+  {%- if en_post and id_post -%}
+    {%- assign current_lang = page.lang | default: site.lang | default: "en" -%}
+    <nav class="lang-switcher" aria-label="Article language">
+      {%- if current_lang == "en" -%}
+        <span class="lang-switcher-item is-active" aria-current="true" lang="en">EN</span>
+      {%- else -%}
+        <a class="lang-switcher-item" href="{{ en_post.url | relative_url }}" hreflang="en" lang="en" title="Read in English">EN</a>
+      {%- endif -%}
+      <span class="lang-switcher-sep" aria-hidden="true">|</span>
+      {%- if current_lang == "id" -%}
+        <span class="lang-switcher-item is-active" aria-current="true" lang="id">ID</span>
+      {%- else -%}
+        <a class="lang-switcher-item" href="{{ id_post.url | relative_url }}" hreflang="id" lang="id" title="Baca dalam Bahasa Indonesia">ID</a>
+      {%- endif -%}
+    </nav>
+  {%- endif -%}
+{%- endif -%}
