@@ -83,7 +83,7 @@
           {%- assign is_active = false -%}
           {%- if item.url == "/" and (page.url == "/" or page.url == "/index.html") -%}
             {%- assign is_active = true -%}
-          {%- elsif item.url == "/blog/" and (page.url == "/blog/" or page.layout == "post") -%}
+          {%- elsif item.url == "/blog/" and (page.url == "/blog/" or page.layout == "post" or page.url == "/categories.html" or page.url == "/tags.html" or page.url == "/archives.html") -%}
             {%- assign is_active = true -%}
           {%- elsif item.url == "/about/" and (page.url == "/about/" or page.url == "/about.html") -%}
             {%- assign is_active = true -%}
