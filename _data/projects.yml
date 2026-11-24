@@ -1,11 +1,13 @@
-- id: "python-application-automation-toolkit"
-  name: "Android Application Security Engineering"
+
+- id: "android-security-research-automation"
+  name: "Android Security Research Automation"
   status: "Published (Sanitized Release)"
   status_note: "Sanitized Public Release"
-  category: "Application Security & Automation Engineering"
-  summary: "A real-world Android security engineering project combining slider CAPTCHA bypass research, mobile application reverse engineering, traffic analysis, and multi-instance Python automation."
+  category: "Mobile Application Security & Automation Engineering"
+  summary: "A real-world Android security engineering project combining successful slider CAPTCHA bypass research, mobile application reverse engineering, HTTP(S) traffic analysis, and multi-instance Python automation."
   github_url: "https://github.com/aldisaw/android-security-research-automation"
   article_url: "https://aldisaw.id/security/2026/11/24/Multi-Instance-Android-Automation-Environment.html"
+
   technical_areas:
     - "Slider CAPTCHA Bypass Research"
     - "Android Reverse Engineering"
@@ -15,19 +17,22 @@
     - "Python Multithreading"
     - "ADB & Emulator Orchestration"
     - "Shared Dynamic Work Queue"
+
   capabilities:
     - title: "1. Slider CAPTCHA Bypass Research"
       items:
-        - "Programmatic slider CAPTCHA bypass achieved during authorized security research"
-        - "Analysis of 340x600 RGBA composite sprite sheets and challenge-ticket lifecycle"
-        - "Server-side hardening recommendations (behavioral telemetry, asset decoupling, Play Integrity)"
+        - "Successful programmatic slider CAPTCHA bypass during authorized security research"
+        - "Analysis of composite sprite sheets and challenge-ticket lifecycle"
+        - "Server-side hardening recommendations, including behavioral telemetry, asset decoupling, and Play Integrity"
+
     - title: "2. Android Mobile Application Security"
       items:
         - "Android reverse engineering and internal application workflow analysis"
-        - "Seven isolated mitmdump processes (ports 8081-8087) with INSTANCE_ID scoping"
-        - "HTTP(S) traffic interception and session-token behavior inspection"
+        - "Seven isolated mitmdump processes with per-instance traffic separation"
+        - "HTTP(S) traffic analysis and session-token behavior inspection"
+
     - title: "3. Multi-Instance Automation"
       items:
-        - "Seven concurrent Android emulator instances (emulator-5556 through emulator-5568)"
+        - "Seven concurrent Android emulator instances"
         - "Centralized Python controller (CLICK) with multithreading and process coordination"
-        - "Non-blocking pause/resume, pygetwindow multi-monitor layout, and log aggregation"
+        - "Pause/resume management, multi-monitor window orchestration, and log aggregation"
