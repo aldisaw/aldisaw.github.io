@@ -7,6 +7,9 @@ categories: security
 banner:
   image: https://github.com/user-attachments/assets/2413c6c3-adc4-4593-a44d-586491487e48
 tags: [security, Speaking, Cyber Awareness, OSINT]
+lang: id
+locale: id_ID
+translation_id: seminar-cyber-aware-2026
 top: 1
 ---
 

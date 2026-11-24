@@ -13,6 +13,23 @@
 
   {%- seo -%}
 
+  {%- if page.layout == "post" and page.translation_id -%}
+    {%- assign paired_posts = site.posts | where: "translation_id", page.translation_id -%}
+    {%- assign en_post = paired_posts | where: "lang", "en" | first -%}
+    {%- assign id_post = paired_posts | where: "lang", "id" | first -%}
+    {%- if en_post and id_post -%}
+      {%- assign default_post = paired_posts | where_exp: "item", "item.is_translation != true" | first | default: en_post -%}
+      <link rel="alternate" hreflang="en" href="{{ site_url }}{{ en_post.url }}">
+      <link rel="alternate" hreflang="id" href="{{ site_url }}{{ id_post.url }}">
+      <link rel="alternate" hreflang="x-default" href="{{ site_url }}{{ default_post.url }}">
+      {%- if page.lang == "id" -%}
+      <meta property="og:locale:alternate" content="en_US">
+      {%- else -%}
+      <meta property="og:locale:alternate" content="id_ID">
+      {%- endif -%}
+    {%- endif -%}
+  {%- endif -%}
+
   {%- unless page.image -%}
   <meta property="og:image" content="{{ og_image }}">
   <meta name="twitter:image" content="{{ og_image }}">
