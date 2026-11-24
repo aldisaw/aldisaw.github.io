@@ -1,11 +1,11 @@
 ---
 layout: post
-title: "Android Automation: 7 Emulators, Python Multithreading, and Slider CAPTCHA Security Research"
+title: "Android Automation: 7 Emulators, Python Multithreading, and CAPTCHA Slider Bypass"
 date: 2026-11-24 10:00:00 +0700
 categories: [security]
 tags: [security, automation, android, python, mitmproxy, captcha, appsec]
 author: Aldi Saputra Wahyudi
-description: "Engineering notes on building an Android application security research environment with 7 emulators, 7 mitmdump processes, Python multithreading, the CLICK controller, and slider CAPTCHA security findings."
+description: "Engineering notes on building an Android application security research environment with 7 emulators, 7 mitmdump processes, Python multithreading, the CLICK control terminal, and slider CAPTCHA security research."
 image: /assets/images/posts/cover-concept.png
 lang: en
 locale: en_US
@@ -14,99 +14,99 @@ is_translation: true
 permalink: /en/security/2026/11/24/Android-Automation-7-Emulator-Python-Multithreading-CAPTCHA-Slider-Bypass.html
 ---
 
-> **Scope Note:** This article documents the *engineering* architecture and security research findings from an Application Security & Automation environment I built for authorized internal research. All production domains, credentials, real account data, original CAPTCHA challenge images, and operational *bypass* scripts remain private. All figures quoted from log files and diagrams below refer to a **sample execution snapshot** (*sample evidence*) from a single session.
+> **Scope Note:** This article documents the engineering architecture and security research findings from an Application Security & Automation environment I built for authorized internal research. All production domains, credentials, real account data, original CAPTCHA challenge images, and operational bypass scripts remain private. All figures quoted from log files and diagrams below refer to a **sample execution snapshot** (sample evidence) from a single session.
 
 ## 1. How It Started
 
-In 2024, while still working as a *Security Consultant*, I was in a phase where I was deeply interested in *mobile application security*—from understanding how Android applications operate and analyzing client-server communication, to examining the security mechanisms implemented inside them.
+In 2024, while working as a Security Consultant, I spent a lot of time diving into mobile application security. That included understanding how Android apps work under the hood, analyzing client-server communication, and inspecting the security controls built into them.
 
-During that period, I received an offer for a project that eventually became my next role. Let's refer to that position as **Application Security & Automation Researcher**.
+Around that time, I received an offer for a project that eventually became my next role. Let's call that position **Application Security & Automation Researcher**.
 
-Initially, I expected the role to focus mostly on mobile application security research. However, once I understood the scope of the work, an equally interesting engineering challenge emerged: not only understanding how the application behaved, but also handling workflows involving many accounts with repetitive execution paths.
+At first, I expected the job to focus mainly on mobile application security research. Once I understood the full scope, though, another interesting challenge came up: not just analyzing how the app worked, but handling workflows involving many accounts with repetitive execution paths.
 
-Running everything manually was obviously not a practical option. Imagine opening an application, interacting with the UI, and processing accounts one by one inside an emulator. As the number of accounts grew, that approach became far too slow.
+Doing everything manually was out of the question. Opening the app, interacting with the UI, and processing accounts one by one inside an emulator quickly became impractical as the account count grew.
 
-At the same time, the process was not as simple as writing a script to tap buttons automatically. The application under study employed *anti-automation* mechanisms, including a *slider CAPTCHA*, which became a key focus in the research process.
+At the same time, it was not as simple as writing a script to click through screens automatically. The application under study used anti-automation controls, including a slider CAPTCHA, which became one of the central challenges in the research.
 
-From there, the work evolved into a combination of *mobile reverse engineering*, *application security research*, and *automation engineering*. I needed to understand the internal mechanics of the application while building an automation system capable of managing those workflows in parallel.
+From there, the work grew into a mix of mobile reverse engineering, application security research, and automation engineering. I needed to understand the app's internal mechanics while building an automation system capable of running those workflows in parallel.
 
-Eventually, I built a *multi-instance* automation environment on Windows: seven Android emulators running concurrently, seven `mitmdump` processes mapped 1:1, and one central terminal named **CLICK** controlling everything.
+Eventually, I put together a multi-instance automation environment on Windows: seven Android emulators running at the same time, seven `mitmdump` processes mapped 1:1, and one central terminal named **CLICK** to control everything.
 
 ## 2. Why Seven Emulators at Once?
 
-Some people might ask:
+You might wonder:
 
-"Why not just hit the API directly with Python instead of going through the trouble of running seven Android emulators?"
+"Why not just hit the API directly with Python instead of bothering with seven Android emulators?"
 
-Not so fast! I thought the same thing at first. In practice, however, many mobile applications bind sensitive flows to *temporary tokens*, UI *state*, and triggers generated from inside the app itself. Running the flow inside an Android environment therefore provided behavior much closer to the real application and made observation easier during research.
+Not that simple! I had the same thought at first. In practice, however, many mobile apps tie sensitive flows to temporary session tokens, UI state, and triggers generated inside the app itself. Running those flows inside an Android environment kept behavior closer to the real application and made observation easier during research.
 
-The challenge was that running just one emulator came with clear bottlenecks. First, latency from UI interactions to *network round-trips* slowed down testing considerably. Second, I needed an environment where multiple sessions could run in parallel so application behavior under concurrent conditions could be observed.
+The catch was that a single emulator hit two bottlenecks right away. First, the delay from UI interactions to network round-trips made testing slow. Second, I needed multiple sessions running in parallel to observe how the application behaved under concurrent execution.
 
-As a result, I chose to run seven Android emulator *instances* concurrently. With this setup, the work queue could be distributed dynamically while *traffic* from each emulator remained separated through its own interception process.
+So I decided to run seven Android emulator instances concurrently. That let me distribute the work queue dynamically while keeping network traffic from each emulator isolated in its own interception process.
 
-That is how the *multi-instance automation* concept took shape—not merely running multiple emulators side by side, but coordinating every instance without interfering with the others.
+That is how the multi-instance automation setup took shape: not just launching several emulators side by side, but coordinating every instance without stepping on the others.
 
 ## 3. Research Environment Overview
 
-The entire research *environment* ran on a single **Windows** host with a *multi-monitor* layout. All core components were controlled from one machine, while each had its own isolated role and workspace.
+The entire research environment ran on a single **Windows** host with a multi-monitor setup. Everything was controlled from one machine, with each component assigned its own role and workspace.
 
-The host ran seven Android emulator *instances*, from `emulator-5556` through `emulator-5568` using even ADB *port* numbers. Each emulator ran the custom Android application under study. To prevent *traffic* across emulators from mixing, each instance routed through its own local *proxy* on *ports* `8081` through `8087`.
+The host ran seven Android emulator instances, from `emulator-5556` through `emulator-5568` on even ADB port numbers. Each emulator ran the custom Android app under study. To keep traffic from mixing across instances, each emulator routed through its own local proxy on ports `8081` through `8087`.
 
-To tie all components together and control them, I used **Python** across three main scripts:
+To connect and control all components, I used **Python** with three main scripts:
 
 1. **`run.py` — Launcher**
 
-   Responsible for launching all `mitmdump` processes and the main terminal. I used the `pygetwindow` library to position and size each CMD window so every process could be monitored cleanly across the *multi-monitor* setup.
+   Launches all `mitmdump` processes and the main terminal. I used `pygetwindow` to position and size each CMD window so every process stayed visible across the multi-monitor layout.
 
 2. **`click.py` — Main Controller**
 
-   The central control hub of the entire environment. It handled communication with the emulators over ADB, network connection management, and task distribution using `threading`. I named the terminal running this script **CLICK**.
+   The control center for the whole environment. It managed ADB communication with the emulators, network connection checks, and task distribution using `threading`. I named the terminal running this script **CLICK**.
 
 3. **`mitm.py` — mitmproxy Addon**
 
-   Loaded by each `mitmdump` process. Every instance ran on its own *port* and processed *traffic* from its paired emulator.
+   Loaded by each `mitmdump` process. Each instance listened on its own port and handled traffic from the emulator paired with it.
 
-With this separation of concerns, each component had a clear responsibility: `run.py` handled process startup and window layout, `click.py` acted as the main orchestrator, and `mitm.py` handled *network traffic* observation.
+With responsibilities split this way, each component stayed focused: `run.py` handled startup and window layout, `click.py` ran orchestration, and `mitm.py` handled network traffic observation.
 
-Even though everything ran on a single Windows host, the environment did not depend on one monolithic process doing everything at once.
+Even though everything lived on one Windows host, the setup did not rely on one big monolithic process doing everything at once.
 
 ## 4. Complete System Architecture
 
-The diagram below summarizes the *multi-instance automation* architecture running simultaneously on a single workstation—**15 active windows** in total, consisting of seven Android emulators, seven `mitmdump` terminals, and one primary **CLICK** terminal.
+The diagram below shows the multi-instance automation architecture running on one workstation. There are **15 active windows** in total: seven Android emulators, seven `mitmdump` terminals, and one main **CLICK** terminal.
 
 ![Arsitektur Multi-Instance Android Automation](/assets/images/posts/architecture.svg)
 
-From the beginning, I separated each script's responsibilities so the overall workflow remained clean and maintainable.
+From the start, I kept each script's responsibilities separate so the workflow stayed easy to manage.
 
-`run.py` served strictly as a *launcher*. It opened the seven `mitmdump` terminals, arranged their window positions across the monitor, and then launched the main **CLICK** terminal running `click.py`.
+`run.py` acted strictly as a launcher. It opened the seven `mitmdump` terminals, arranged their positions on screen, and then launched the main **CLICK** terminal running `click.py`.
 
-Once all processes were up, `run.py` finished its job and exited—subsequent control was handled entirely by `click.py` alongside the seven active `mitmdump` processes.
+Once every process was up, `run.py` was done and exited. Ongoing control stayed with `click.py` and the seven running `mitmdump` processes.
 
-In short, `run.py` prepared the environment, `click.py` coordinated automation execution, and each `mitmdump` instance inspected the *network traffic* of its assigned emulator.
+In short, `run.py` prepared the environment, `click.py` coordinated the automation, and each `mitmdump` instance handled network traffic for its assigned emulator.
 
 ## 5. Managing Seven Android Emulators in Parallel
 
-Coordinating seven emulators via ADB (`adb -s emulator-55XX shell ...`) comes with a classic pitfall: if the ID list is split statically upfront, one slower emulator can finish last while the other six sit idle waiting.
+Coordinating seven emulators via ADB (`adb -s emulator-55XX shell ...`) comes with a trap. If you split the ID list statically upfront, a slower emulator can leave the other six sitting idle once they finish their batches early.
 
-To avoid that bottleneck, I implemented a **shared dynamic work queue** inside `click.py`.
+To avoid that, I used a **shared dynamic work queue** in `click.py`.
 
-All IDs from `id.txt` were loaded into a shared queue named `all_ids`. The seven *worker threads* fetched the next ID through `get_next_id()`, with queue access synchronized via `threading.Lock()` so two threads could never pull the same ID concurrently.
+All IDs from `id.txt` were loaded into a shared queue called `all_ids`. The seven worker threads pulled the next ID through `get_next_id()`, guarded by `threading.Lock()` so two threads could never grab the same ID at once.
 
-With this mechanism, each emulator immediately picked up the next task upon finishing its current one. Faster emulators naturally processed more IDs, while slower ones did not stall the overall queue.
+With that setup, each emulator immediately grabbed the next task as soon as it finished the current one. Faster emulators naturally processed more IDs, and slower ones never held up the rest of the queue.
 
-Alongside dynamic queue distribution, I maintained a strict 1:1 mapping across each *worker*, Android emulator, `mitmdump` terminal, and proxy *port* so every worker kept a dedicated emulator and *network traffic* channel.
+Alongside the shared queue, I kept a strict 1:1 mapping between each worker, Android emulator, `mitmdump` terminal, and proxy port so every worker kept its own dedicated device and traffic channel.
 
 ![Pemetaan 1:1 Worker, Emulator, dan Port mitmdump](/assets/images/posts/mapping.svg)
 
-This made workload distribution far more flexible than static partitioning—no emulator waited on another's batch as long as IDs remained in the queue.
+This made workload sharing far more flexible than static splitting. No emulator sat waiting on another's batch while IDs remained in the queue.
 
 ## 6. Traffic Interception with Seven `mitmdump` Processes
 
-Rather than routing all seven emulators through a single `mitmdump` instance and having to disentangle which request came from which device, I ran seven separate `mitmdump` processes.
+Instead of pointing all seven emulators at a single `mitmdump` instance and having to sort out which request came from which device, I ran seven separate `mitmdump` processes.
 
-Each process listened on a distinct port from `8081` to `8087`, launched with the `-q` (*quiet mode*) flag to suppress noisy default logs and keep terminal output focused on the addon's relevant output.
+Each process used a different port from `8081` to `8087`, launched with the `-q` (quiet mode) flag to keep noisy default logs out of the terminal and leave the output focused on what the addon printed.
 
-To distinguish each process's identity, I injected the `INSTANCE_ID` *environment variable* prior to starting `mitmdump`.
+To identify each process cleanly, I set the `INSTANCE_ID` environment variable before starting `mitmdump`.
 
 For example:
 
@@ -116,178 +116,178 @@ set INSTANCE_ID=emulator-5556 && mitmdump -q -s mitm.py -p 8081
 
 ## 7. Slider CAPTCHA Security Research: Analysis, Findings, and Recommendations
 
-One of the most interesting challenges in this project was an image-based **slider CAPTCHA** mechanism protecting sensitive application flows.
+One of the most interesting challenges in this project was an image-based **slider CAPTCHA** protecting sensitive flows in the application.
 
-While observing *network traffic* through `mitmdump` and analyzing the *challenge-ticket lifecycle*, I observed that the CAPTCHA service delivered a PNG *sprite sheet* with fixed dimensions of **`340 x 600` pixels** in 8-bit RGBA format.
+While observing network traffic through `mitmdump` and inspecting the challenge-ticket lifecycle, I noticed that the CAPTCHA service delivered a PNG sprite sheet with fixed dimensions of **`340 x 600` pixels** in 8-bit RGBA format.
 
-Visually, each *sprite sheet* was composed of three vertical regions:
+Visually, each sprite sheet contained three vertical areas:
 
-1. **Top area:** The intact background image scrambled into 10 vertical strips (*vertical strip scrambling*).
-2. **Middle area:** The same scrambled background pattern, overlaid with the puzzle cutout shadow (*cutout shadow*).
+1. **Top area:** The intact background image scrambled into 10 vertical strips (vertical strip scrambling).
+2. **Middle area:** The same scrambled background pattern, overlaid with the puzzle cutout shadow.
 3. **Bottom area:** A single puzzle piece placed at a fixed horizontal position on the left side of the canvas.
 
 ![Ilustrasi generik mekanisme slider CAPTCHA dengan susunan potongan gambar dan puzzle terpisah](/assets/images/posts/captcha-research-illustration.png)
 
-*Illustration: Generic visualization of the slider CAPTCHA layout to help explain the research process. This image is not a screenshot of the original application and is not test evidence. Artwork has been replaced to preserve application anonymity.*
+*Illustration: Generic visualization of the slider CAPTCHA layout to help explain the research process. This image is not a screenshot of the original application and is not test evidence. Artwork has been replaced to keep the application anonymous.*
 
-From that structure, the central research question emerged:
+From that structure came the core question of the research:
 
-> "Are 10-strip vertical scrambling and a slider puzzle mechanism like this sufficient to resist automation?"
+> "Are 10-strip vertical scrambling and a slider puzzle like this strong enough to stop automation?"
 
-After analyzing the implementation, I identified two architectural weaknesses in the mechanism under study.
+After analyzing how it worked, I found two architectural weaknesses in the mechanism under study.
 
-First, both the background image and the puzzle piece were delivered together in a single *sprite sheet* with relatively deterministic structure and geometry. This made programmatic visual analysis feasible using *computer vision* techniques such as *grayscale template matching*.
+First, both the background image and the puzzle piece were delivered inside a single sprite sheet with a relatively deterministic layout and geometry. That opened the door to programmatic visual analysis using computer vision techniques, including grayscale template matching.
 
-Second, based on the verification behavior observed within the authorized testing scope, server-side validation appeared to focus primarily on the matched *horizontal offset* value. I observed no indication of sufficient supplementary checks on behavioral telemetry—such as touch trajectory paths, velocity variation, or *device attestation*.
+Second, based on the verification behavior observed within the testing scope, server-side validation appeared to focus mainly on the matched horizontal offset value. I saw no indication of sufficient checks on behavioral telemetry, such as touch drag paths, speed variation, or device attestation.
 
-**As a result, the slider CAPTCHA mechanism could be automated programmatically** via parallel image analysis inside the authorized research environment.
+**As a result, I successfully bypassed the slider CAPTCHA mechanism automatically** using parallel image analysis inside the authorized research environment.
 
-This finding illustrates that scrambling an image into 10 vertical strips alone is not necessarily enough to deter automation if the visual structure and verification model remain predictable.
+This shows that scrambling an image into 10 vertical strips is not enough on its own to prevent automation if the visual layout and verification check remain predictable.
 
-To keep this publication focused strictly on security analysis, I have intentionally omitted cropping coordinates, *offset* scaling formulas, service *endpoints*, and operational testing scripts.
+To keep this post focused on security analysis, I have intentionally left out cropping coordinates, offset scaling formulas, service endpoints, and the operational scripts used during testing.
 
 ### Mitigation Recommendations
 
-Based on these findings, developers can consider several layered defenses to strengthen similar CAPTCHA mechanisms:
+Based on these findings, developers can strengthen similar CAPTCHA implementations with a few layered controls:
 
 - **Behavioral Telemetry Validation**
 
-  Do not validate only the final slider coordinate. Servers should also evaluate interaction signals such as drag trajectory, velocity changes, touch-input consistency, and completion timing as risk inputs rather than relying on a single static check.
+  Do not validate only the final slider coordinate. The server should also evaluate interaction signals such as drag trajectory, velocity changes, touch consistency, and completion timing as part of a broader risk assessment rather than treating them as standalone proof of a human user.
 
 - **Asset Decoupling and Dynamic Obfuscation**
 
-  Avoid relying on a fixed visual asset layout. Separating assets, varying geometry, introducing dynamic distortion, and applying per-session randomized transformations increase the cost of automated visual analysis.
+  Avoid relying on a fixed visual asset structure. Separating assets, varying geometry, adding dynamic distortion, and applying randomized per-session transformations raise the cost of automated visual analysis.
 
 - **App and Device Attestation**
 
-  For Android applications, CAPTCHA flows can be combined with the *Play Integrity API* or comparable *device attestation* mechanisms, cryptographically binding attestation results to the session and challenge token so they cannot be reused.
+  For Android apps, CAPTCHA flows can be paired with the Play Integrity API or similar device attestation mechanisms, with attestation results bound securely to the session and challenge token so they cannot be replayed.
 
 - **Layered Risk Scoring**
 
-  CAPTCHA should not serve as the sole defensive layer. Combine challenge validation with broader risk signals protecting sensitive *endpoints*, including session anomaly detection and abnormal request-pattern analysis.
+  CAPTCHA should not be the only line of defense. Combine challenge verification with other risk signals protecting sensitive endpoints, including session anomaly detection and unusual request-pattern analysis.
 
-One key takeaway from this research is that a CAPTCHA that looks tricky for humans is not automatically hard for machines—in application security, visual complexity does not equate to strong verification.
+One clear lesson from this research is that a CAPTCHA that looks tricky to a human is not necessarily hard for a machine. In application security, visual complexity does not equal strong verification.
 
 ## 8. The `CLICK` Terminal and Network Management
 
-The **CLICK** terminal (`click.py`) served as the central control console for the environment, coordinating the work queue, worker states, and network configuration.
+The **CLICK** terminal (`click.py`) served as the central console for the entire environment, coordinating the work queue, worker states, and network configuration.
 
-At startup, `click.py` waited `time.sleep(5)` so all seven `mitmdump` processes could finish initializing and begin accepting connections from the emulators.
+When `click.py` started, it paused with `time.sleep(5)` so all seven `mitmdump` processes could finish initializing and start accepting emulator connections.
 
-Next, the controller checked the host VPN status via `vpn_status()`. If already connected, it adopted the active server name; otherwise, it initiated a connection using `connect_vpn()`.
+The controller then checked host VPN status via `vpn_status()`. If a VPN was already connected, it adopted the active server name; otherwise, it initiated a connection via `connect_vpn()`.
 
-Inside this authorized research environment, I also integrated a VPN management module comprising `vpn_status()`, `connect_vpn()`, and `switch_vpn()`. Region switching occurred periodically after every 200 completed items.
+In this authorized research environment, I also integrated a VPN management module with `vpn_status()`, `connect_vpn()`, and `switch_vpn()`. Region switching ran periodically after every 200 completed items.
 
-This configuration was used to observe application behavior consistency across different network contexts and *egress* regions during testing sessions.
+This setup was used to observe how consistently the application behaved across different network contexts and egress regions during testing sessions.
 
 ### Interactive Pause and Resume
 
-Beyond process and network coordination, the **CLICK** terminal supported **Pause/Resume** so testing could be controlled interactively.
+Beyond process and network control, the **CLICK** terminal supported **Pause/Resume** so runs could be controlled interactively.
 
-This ran on a `pause_listener()` *daemon thread*. On Windows, I used `msvcrt.kbhit()` to detect keyboard input without blocking the main thread.
+This ran on a `pause_listener()` daemon thread. On Windows, I used `msvcrt.kbhit()` to read keyboard input without blocking the main process.
 
-Pressing `ENTER` triggered a pause via `resume_event.clear()`. Workers currently handling an item finished their active ID first and then paused cleanly before starting the next iteration.
+Pressing `ENTER` triggered a pause via `resume_event.clear()`. Workers currently handling an ID finished that item first, then paused cleanly before the next iteration.
 
-Once paused, execution could be resumed without tearing down the entire environment—making it much easier to inspect emulator or proxy state mid-run without manually closing eight separate terminal windows.
+Once paused, execution could be resumed without tearing down the whole setup. That made it much easier to take a quick break or inspect environment state without closing every active terminal window.
 
 ## 9. Multithreading, Synchronization, and Monitoring
 
-At the *thread* level, the environment used two concurrent layers running simultaneously.
+At the thread level, the environment used two concurrent layers running at the same time.
 
 ![Arsitektur Multithreading Dua Lapis](/assets/images/posts/threading.svg)
 
 ### Concurrency in `click.py`
 
-Inside `click.py`, **10 threads** ran concurrently:
+Inside `click.py`, **10 threads** were involved in running the controller:
 
-- **1 Main Thread:** Executed the primary controller flow and coordinated startup/shutdown.
-- **7 Emulator Worker Threads:** Each managed execution for one dedicated Android emulator.
-- **1 `table_updater` Thread:** Refreshed the terminal progress table once per second for live monitoring.
-- **1 `pause_listener` Daemon Thread:** Listened for keyboard input to toggle Pause/Resume without blocking execution.
+- **1 Main Thread:** Ran the primary controller flow and coordinated overall execution.
+- **7 Emulator Worker Threads:** Each handled tasks for one dedicated Android emulator.
+- **1 `table_updater` Thread:** Refreshed the progress table in the terminal every second for live monitoring.
+- **1 `pause_listener` Daemon Thread:** Watched for keyboard input to handle Pause/Resume without blocking the main process.
 
 ### Internal `mitmdump` Concurrency
 
-The second layer lived inside each `mitmdump` process, configured with `num_threads = 5` to handle concurrent flows.
+The second layer ran inside each `mitmdump` process, configured with `num_threads = 5` to handle work concurrently.
 
-With seven independent `mitmdump` processes running side by side, each instance maintained its own internal concurrency pool.
+With seven separate `mitmdump` processes running side by side, each instance had its own internal concurrency pool.
 
 ### Synchronization Between `click.py` and `mitm.py`
 
-A notable detail in this implementation was how `click.py` detected that `mitm.py` had finished processing an ID.
+One quirky detail in this setup was how `click.py` knew `mitm.py` had finished processing an ID.
 
-Instead of direct IPC over *sockets* or a *message queue*, both scripts coordinated via file modification timestamps (*file modification time* or `mtime`).
+Instead of talking directly over sockets or a message queue, both scripts used file modification timestamps (`mtime`) as the completion signal.
 
-Before triggering an emulator submission, `click.py` recorded the last modification timestamp of that emulator's output file, then polled `os.path.getmtime()` once per second until a change was detected.
+Before triggering a submission through the emulator, `click.py` recorded the last modified timestamp of that emulator's output file, then polled `os.path.getmtime()` once per second until the timestamp changed.
 
-This kept cross-process coordination simple without adding extra IPC infrastructure, at the trade-off of tying synchronization latency to file timestamps and the polling interval.
+This kept coordination simple without adding extra IPC plumbing, though it meant synchronization latency depended on file writes and the polling interval.
 
 ### Merging Results
 
-Once the work queue drained, the *main thread* waited for all seven *worker threads* via `.join()`, followed by the `table_updater` thread so monitoring shut down cleanly.
+Once the work queue emptied, the main thread waited for all seven worker threads to finish via `.join()`, along with the `table_updater` thread so monitoring closed cleanly.
 
-Finally, the controller called `merge_results()` to consolidate the per-emulator logs into two combined output files:
+The controller then called `merge_results()` to combine the per-emulator logs into two final output files:
 
 - `berhasil_all.txt`
 - `gagal_all.txt`
 
-This gathered outputs from all seven emulators into one place for post-run review and analysis.
+This pulled results from all seven emulators into one place for easier review and follow-up analysis.
 
 ## 10. Reading the Sample Execution Evidence
 
-For documentation and auditability, I included a representative execution snapshot (*provided execution snapshot*) consisting of a sample input file (`id.txt`), logs from one instance (`berhasil_emulator-5556.txt` and `gagal_emulator-5556.txt`), and three sample challenge images (`capimg_*.png`).
+For documentation and auditability, I included a provided execution snapshot consisting of a sample input file (`id.txt`), logs from one instance (`berhasil_emulator-5556.txt` and `gagal_emulator-5556.txt`), and three sample challenge images (`capimg_*.png`).
 
-It should be emphasized that these files represent a **sample snapshot from part of a test session**, not the entire project dataset. All figures discussed here describe only that included sample.
+To be clear, these files are a **representative sample from part of a test session**, not the full project dataset. All numbers discussed in this section reflect only the included sample.
 
-Logs from `emulator-5558` through `emulator-5568` were not included in this sample package—not because those emulators were unused, but simply to keep documentation anchored to one representative evidence set.
+Logs from `emulator-5558` through `emulator-5568` were omitted from this sample package, not because those emulators went unused, but simply to anchor the write-up to one representative evidence set.
 
 ### Reading the Sample Logs
 
-From the included sample, several observations stand out:
+Looking at the included sample, a few details stand out:
 
 - Sample `berhasil_emulator-5556.txt` recorded **3 successful entries**.
 - Sample `gagal_emulator-5556.txt` recorded **19 failure lines** across **14 unique IDs**.
 - Sample `id.txt` contained **40 unique IDs**.
 - Three `capimg_*.png` images were 8-bit RGBA PNGs measuring `340 x 600` pixels.
 
-In the failure log, two primary server response categories appeared: mismatched challenge answers and request *throttling* responses.
+In the failure log, two main server response categories showed up: mismatched answers and request throttling.
 
-Interestingly, all three IDs recorded as successful in the success log sample had previously appeared in the failure log sample—reflecting retries or multi-session logging.
+Notably, all three IDs listed as successful in the success sample had also appeared earlier in the failure sample, pointing to retries or entries recorded across different sessions.
 
-This behavior aligns with opening log files in append mode (`'a'`) without deduplication, preserving earlier records as new runs append to the same file.
+That matches opening log files in append mode (`'a'`) without deduplication, keeping older lines intact whenever new results are appended to the same file.
 
 ### Sample Terminal Output
 
-To illustrate what the **CLICK** dashboard looked like, I included the synthetic terminal output illustration below. The data shown is synthetic—not raw production logs—and does not represent full test results.
+To show what the **CLICK** dashboard looked like, I included the synthetic terminal output illustration below. The values shown are synthetic rather than real logs and do not represent full test results.
 
 ![Contoh Output Terminal CLICK Sintetis](/assets/images/posts/sample-execution-log.svg)
 
 ## 11. Desktop Workstation Layout
 
-With seven Android emulators and eight terminal windows running simultaneously, screen organization mattered so everything could be monitored at a glance.
+With seven Android emulators and eight terminal windows open at once, screen layout mattered so everything stayed easy to watch.
 
-Through `run.py`, the seven `MITM DUMP` windows were arranged automatically via `pygetwindow`, each sized at `400 x 300` pixels on the left-hand secondary monitor:
+Using `run.py`, the seven `MITM DUMP` windows were arranged automatically via `pygetwindow`, each sized at `400 x 300` pixels on the left secondary monitor:
 
 - Five windows along the top row at `y = 228`.
 - Two windows along the bottom row at `y = 748`.
 - Horizontal positions (`x`) spanning from `-1929` to `-395`.
 
-Meanwhile, the seven Android emulators occupied the upper workstation area, with the **CLICK** terminal positioned below them as the central control console.
+Meanwhile, the seven Android emulators sat across the upper workstation area, with the **CLICK** terminal below them as the central control console.
 
 ![Ilustrasi Konseptual Desktop Environment](/assets/images/posts/desktop-environment.svg)
 
-The diagram above is a conceptual representation built from the window coordinates and dimensions configured in `run.py`, used instead of application screenshots so the documentation stays focused on environment architecture without exposing the target application UI.
+The diagram above is a conceptual layout built from the window coordinates and dimensions configured in `run.py`, used instead of target-app screenshots so the write-up stays focused on environment architecture without exposing the application UI.
 
 ## 12. Closing Thoughts
 
-Building a *multi-instance* automation *environment* while researching *slider CAPTCHA* weaknesses was a rewarding engineering experience. It reinforced that application security research is not just about spotting isolated bugs—it is about understanding how every layer fits together, from network communication and application internals to concurrency in the tooling itself.
+Building a multi-instance automation environment while researching slider CAPTCHA weaknesses was a rewarding engineering experience. It reinforced that application security research is not only about finding bugs, but understanding how every piece works together, from network traffic and app internals to concurrency in the automation tooling itself.
 
-There was a lot to learn along the way: orchestrating seven emulators concurrently, managing processes with Python *multithreading*, and analyzing anti-automation protections through *computer vision*.
+There was plenty to learn from orchestrating seven emulators at once, managing processes with Python multithreading, and analyzing anti-automation controls using computer vision.
 
-To keep the research educational without exposing sensitive components, I published a sanitized architecture and simulation repository separately, focusing on *multi-emulator* orchestration, *multithreading*, and *desktop automation* patterns without any operational scripts from the original research environment.
+To keep the work educational without exposing sensitive parts, I documented a sanitized architecture and simulation version in a separate repository. That public repo focuses on multi-emulator orchestration, multithreading, and desktop automation patterns without any operational scripts from the original research environment.
 
-Ultimately, the most interesting part for me was not simply running seven emulators in parallel or identifying a CAPTCHA weakness, but understanding how all the moving pieces connect and operate together as a single system.
+For me, the best part of the project was not just running seven emulators in parallel or bypassing a CAPTCHA check, but seeing how all the moving pieces connect and run together as one system.
 
-If you have built mobile automation *labs* or researched anti-automation defenses from a different angle, I am always open to discussing and exchanging notes.
+If you have built mobile automation labs or studied anti-automation protections from another angle, I am always happy to discuss and exchange notes.
 
 ---
 
