@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Membangun Environment Multi-Instance Android Automation & Riset Keamanan Slider CAPTCHA"
+title: "Android Automation: 7 Emulator, Python Multithreading, dan CAPTCHA Slider Bypass"
 date: 2026-11-24 10:00:00 +0700
 categories: [security]
 tags: [security, automation, android, python, mitmproxy, captcha, appsec]
@@ -289,3 +289,7 @@ Untuk menjaga agar hasil riset tetap bisa dipelajari tanpa mengekspos komponen s
 Pada akhirnya, bagi saya, bagian paling menarik dari project ini bukan sekadar berhasil menjalankan tujuh emulator sekaligus atau menemukan kelemahan sebuah mekanisme CAPTCHA, tetapi proses memahami bagaimana semuanya saling terhubung dan bekerja sebagai satu sistem.
 
 Kalau kamu pernah membangun *lab* otomasi mobile atau melakukan riset keamanan terhadap mekanisme anti-otomasi dengan pendekatan berbeda, saya terbuka untuk berdiskusi dan bertukar pengalaman.
+
+---
+
+**Repositori GitHub (Versi Tersanitasi):** [aldisaw/android-security-research-automation](https://github.com/aldisaw/android-security-research-automation)

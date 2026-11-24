@@ -5,7 +5,7 @@
   category: "Mobile Application Security & Automation Engineering"
   summary: "A real-world Android security engineering project combining successful slider CAPTCHA bypass research, mobile application reverse engineering, HTTP(S) traffic analysis, and multi-instance Python automation."
   github_url: "https://github.com/aldisaw/android-security-research-automation"
-  article_url: "https://aldisaw.id/security/2026/11/24/Multi-Instance-Android-Automation-Environment.html"
+  article_url: "https://aldisaw.id/security/2026/11/24/Android-Automation-7-Emulator-Python-Multithreading-CAPTCHA-Slider-Bypass.html"
 
   technical_areas:
     - "Slider CAPTCHA Bypass Research"
