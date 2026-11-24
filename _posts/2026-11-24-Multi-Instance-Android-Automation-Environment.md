@@ -121,6 +121,10 @@ Secara visual, satu *sprite sheet* tersebut terdiri dari tiga area vertikal:
 2. **Area tengah:** Latar belakang dengan pola pengacakan yang sama, tetapi dilengkapi bayangan potongan puzzle (*cutout shadow*).
 3. **Area bawah:** Satu kepingan puzzle yang ditempatkan pada posisi horizontal tetap di sisi kiri kanvas.
 
+![Ilustrasi generik mekanisme slider CAPTCHA dengan susunan potongan gambar dan puzzle terpisah](/assets/images/posts/captcha-research-illustration.png)
+
+*Ilustrasi: Visualisasi generik mekanisme slider CAPTCHA untuk membantu menjelaskan proses penelitian. Gambar ini bukan screenshot dari aplikasi asli dan bukan evidence hasil pengujian. Artwork telah diganti untuk menjaga identitas aplikasi tetap anonim.*
+
 Dari struktur tersebut, muncul pertanyaan utama dalam riset saya:
 
 > "Apakah pengacakan potongan vertikal dan mekanisme puzzle slider seperti ini cukup kuat untuk menahan otomasi?"
