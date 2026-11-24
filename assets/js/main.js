@@ -39,6 +39,20 @@
       setDrawer(!isOpen);
     });
 
+    drawer.addEventListener('click', function (e) {
+      if (e.target && e.target.closest && e.target.closest('a')) {
+        setDrawer(false);
+      }
+    });
+
+    document.addEventListener('click', function (e) {
+      if (menuBtn.getAttribute('aria-expanded') === 'true' &&
+          !drawer.contains(e.target) &&
+          !menuBtn.contains(e.target)) {
+        setDrawer(false);
+      }
+    });
+
     document.addEventListener('keydown', function (e) {
       if (e.key === 'Escape' && menuBtn.getAttribute('aria-expanded') === 'true') {
         setDrawer(false);
@@ -46,6 +60,22 @@
       }
     });
   }
+
+  // 2b. Graceful fallback if an external thumbnail fails to load
+  var fallbackImgs = document.querySelectorAll('img[data-fallback-src]');
+  fallbackImgs.forEach(function (img) {
+    function applyFallback() {
+      var fallback = img.getAttribute('data-fallback-src');
+      if (fallback && img.getAttribute('src') !== fallback) {
+        img.src = fallback;
+        img.classList.add('is-fallback');
+      }
+    }
+    img.addEventListener('error', applyFallback, { once: true });
+    if (img.complete && img.naturalWidth === 0) {
+      applyFallback();
+    }
+  });
 
   // 3. Back to Top Button (throttled via requestAnimationFrame)
   var backToTop = document.getElementById('back-to-top');
@@ -66,7 +96,8 @@
     }, { passive: true });
 
     backToTop.addEventListener('click', function () {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      var prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      window.scrollTo({ top: 0, behavior: prefersReduced ? 'auto' : 'smooth' });
     });
   }
 

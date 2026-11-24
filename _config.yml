@@ -1,16 +1,16 @@
 # Site settings
 title: "Aldisaw — Aldi Saputra Wahyudi"
-tagline: "Security Researcher & Builder."
+tagline: "Security Researcher & Digital Creator."
 email: hello@aldisaw.id
 author: Aldi Saputra Wahyudi
 brand: ALDISAW
 copyright: "&copy; {currentYear} {author} (ALDISAW)"
 
 description: >-
-  Aldi Saputra Wahyudi (Aldisaw) — Cybersecurity researcher, application security specialist, and technology enthusiast sharing vulnerability research, technical write-ups, automation experiments, and travel stories.
+  Aldi Saputra Wahyudi (Aldisaw) — Cybersecurity professional and security researcher sharing vulnerability research, technical write-ups, digital content, and personal stories.
 
 keywords: >-
-  Aldi Saputra Wahyudi, Aldisaw, Cybersecurity, Application Security, Penetration Testing, Vulnerability Assessment, Bug Bounty, Vulnerability Research, Android Security, Mobile Application Security, AI Automation
+  Aldi Saputra Wahyudi, Aldisaw, Cybersecurity, Application Security, Penetration Testing, Vulnerability Assessment, Bug Bounty, Vulnerability Research, Android Security, Mobile Application Security, Digital Creator
 
 url: "https://aldisaw.id"
 baseurl: ""

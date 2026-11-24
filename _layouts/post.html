@@ -164,9 +164,9 @@ layout: default
 
       {%- if related_count > 0 -%}
       <section class="related-section" aria-label="More Articles">
-        <div class="section-header" style="margin-bottom: 1.25rem;">
-          <h2 class="section-title" style="font-size: 1.35rem; margin: 0;">More from the Blog</h2>
-          <a class="section-link" href="{{ '/blog/' | relative_url }}">View all articles &rarr;</a>
+        <div class="section-header related-header">
+          <h2 class="section-title related-title">More from the Blog</h2>
+          <a class="section-link" href="{{ '/blog/' | relative_url }}">View all articles <span aria-hidden="true">&rarr;</span></a>
         </div>
         <div class="grid-2">
           {{ related_html }}
