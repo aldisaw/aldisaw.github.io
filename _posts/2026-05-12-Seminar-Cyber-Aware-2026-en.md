@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "Cyber Aware Seminar 2026 | Beyond Breach: Smart Strategies for Facing Cyber Threats"
-description: "Notes and takeaways from Cyber Aware Seminar 2026 at Universitas Pasundan by Aldi Saputra Wahyudi covering OSINT, social media oversharing, and data privacy."
+title: "Seminar Cyber Aware 2026 | Beyond Breach: Smart Strategies for Facing Cyber Threats"
+description: "Notes and material from Seminar Cyber Aware 2026 at Universitas Pasundan by Aldi Saputra Wahyudi covering OSINT, social media oversharing, and data privacy."
 date: 2026-05-12
 author: Aldi Saputra Wahyudi
 categories: security
@@ -16,71 +16,71 @@ permalink: /en/security/2026/05/12/Seminar-Cyber-Aware-2026.html
 top: 1
 ---
 
-Recently, I was invited by the Informatics Engineering Department at Universitas Pasundan as a speaker for **Seminar Cyber Aware 2026**, carrying the theme **"Beyond Breach, Strategi Cerdas Menghadapi Ancaman Siber 2026"** (*Smart Strategies for Facing Cyber Threats 2026*).
+Recently, I was invited by the Informatics Engineering department at Universitas Pasundan as a speaker for **Seminar Cyber Aware 2026**, themed **"Beyond Breach, Strategi Cerdas Menghadapi Ancaman Siber 2026"** (Smart Strategies for Facing Cyber Threats 2026).
 
-This was quite a memorable moment for me. Back when I was still in college, I remember being captivated by **Raditya Iryandi's** presentation when he visited my campus. Two years later, in 2018, he became my mentor in the **Born to Protect Challenge**.
+This was a memorable moment for me. Back when I was still in college, I remember being captivated by **Raditya Iryandi's** talk when he visited my campus. Two years later, in 2018, he became my mentor in the **Born to Protect Challenge**.
 
-The writing style and slide design I brought to this seminar were heavily inspired by his presentation slides from roughly 10 years ago. In my opinion, those slides were great because they were simple, concise, and still managed to deliver the message clearly.
+The writing style and slides I brought to this seminar were heavily inspired by his presentation from about 10 years ago. I always thought those slides worked well because they were simple, concise, and still got the message across clearly.
 
 ![Seminar Cyber Aware 2026](https://github.com/user-attachments/assets/b36b5023-df6a-49dd-abf3-da93a215c5a4)
 
-Now let's focus on the material.
+Now on to the material.
 
-I presented from the perspective (POV) of how a hacker starts when trying to exploit someone, delivered in easy-to-understand language and sprinkled with a bit of humor from my past experience doing stand-up comedy hehe.
+I approached the topic from a hacker's POV when trying to exploit someone, keeping the explanation approachable and mixing in a bit of humor from my past experience doing stand-up comedy hehe.
 
-The session began with a simple question:
+The talk started with a simple question:
 
-> **"Where can a hacker start when trying to exploit someone?"**
+> **"Where does a hacker start when trying to exploit someone?"**
 
 The answer is **information gathering**.
 
-I explained how oversharing on social media can be leveraged by an attacker. Even things we don't consider oversharing—or small, seemingly trivial details we share—can become valuable intelligence in the eyes of a hacker.
+I walked through how oversharing on social media can be used by an attacker. Even things we do not consider oversharing, or small details that seem unimportant, can turn into useful intelligence from an attacker's perspective.
 
 One clear example is an Instagram Story.
 
-From a simple story, someone can sometimes infer another person's location, habits, daily activities, close circle, and even overall lifestyle patterns.
+From a single casual story, someone can sometimes piece together your location, habits, daily routine, close circle, and even broader lifestyle patterns.
 
 That led to the next question:
 
 > **"What if the social media account is set to private?"**
 
-This is where I introduced **OSINT (Open Source Intelligence)**.
+That is where I moved into **OSINT (Open Source Intelligence)**.
 
-I explained that locking a social media profile does not automatically mean all information about a person becomes unavailable. Even with minimal initial clues, additional details can still be uncovered through OSINT techniques and data correlation across multiple sources.
+Locking down a social media profile does not mean all information about someone automatically disappears. Even with very small clues, additional details can still be uncovered through OSINT and data correlation across multiple sources.
 
-Next, I covered cyber awareness fundamentals that may already sound familiar—specifically _common passwords_ and the habit of reusing the same password across many accounts.
+Next, I touched on a familiar cyber awareness topic: common passwords and the habit of reusing the same password across multiple accounts.
 
-For those who frequently attend cybersecurity seminars, this part might feel well-trodden. Still, plenty of people continue doing it—so like it or not, it always needs to be addressed. 😄
+If you attend cybersecurity seminars often, you have probably heard this before. Still, plenty of people keep doing it, so it has to be brought up anyway. 😄
 
-After that, I discussed how individuals can still be exploited solely through social media exposure and data privacy gaps.
+After that, I discussed how someone can still be exploited using only social media exposure and data privacy gaps.
 
-Because at the end of the day:
+Because in the end:
 
 > **Data is more valuable than oil.**
 
-I then referenced the documentary **The Great Hack** and drew parallels between the phenomena depicted in the film and the current landscape in Indonesia.
+I also brought up the documentary **The Great Hack** and compared the dynamics shown in the film with what we see in Indonesia.
 
 ## Indonesia and Cybersecurity: Doing Fine or Totally Cooked?
 
-In this segment, I discussed how Indonesian data is transmitted and processed abroad including to the US, the Pusdatin breach case, the underground data-selling phenomenon involving _Bjorka_, and several real cases I have personally handled.
+In this part, I talked about how Indonesian data is sent and processed overseas including in the US, the Pusdatin breach, underground data leaks sold by Bjorka, and a few cases I have handled myself.
 
-The goal was not to make university students paranoid about technology, but rather to help them understand that every piece of information we share on the internet carries real value and potential risk.
+The goal was not to make students paranoid about technology, but to help them see that every piece of information we put online carries real value and risk.
 
-I closed the material with one core message:
+I wrapped up the session with one main message:
 
 > **There's a Place for You in Cybersecurity**
 
-I wanted students to understand that cybersecurity is not only about becoming a hacker, penetration tester, or someone skilled at breaking into systems.
+I wanted students to realize that cybersecurity is not just about becoming a hacker, a penetration tester, or someone who breaks into systems.
 
-There are many disciplines within cybersecurity, and there is always room for anyone willing to learn and contribute.
+There are many paths within cybersecurity, and there is always room for anyone willing to learn and contribute.
 
-As a closing quote, I shared:
+For the closing quote, I shared:
 
 > **"We think we are using technology, while technology is quietly learning how to use us."**
 
-In my view, that quote captures where we stand today.
+That line fits where we are today.
 
-We feel as though we are the ones using technology.
+We feel like we are the ones using technology.
 
 Yet at the same time, technology is quietly learning about **us**.
 
