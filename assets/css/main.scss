@@ -893,6 +893,11 @@ ul, ol {
   font-size: 1.05rem;
   line-height: 1.78;
   color: var(--text-secondary);
+  overflow-wrap: break-word;
+}
+
+.prose a {
+  overflow-wrap: anywhere;
 }
 
 .prose h2 {
